@@ -11,6 +11,14 @@ Open-Jev accepts the same **observed state → typed questions → action** patt
 | T-Rex-style | Original local box-physics runner, plus the public browser-state adapter with maneuver/jump-profile Choices | Local physics differ from Chrome/source physics; original browser integration and launch timing remain external |
 | Tic-tac-toe | Complete local engine and exact minimax data | An extra validation task, not a claim that the linked Jev demos included it |
 
+## Interactive v1.1 game arcade
+
+[Open the game arcade](https://zefan-cai.github.io/open-jev/games/) to choose moves in Snake, tic-tac-toe, the local Box Runner and Tile Platformer, then compare with saved Open-Jev-27B-v1.1 decisions. Each family has four original synthetic CC0 snapshots. All 74 candidate probabilities are retained, together with three model/reference disagreements.
+
+These 16 snapshots come from the completed internal Test/OOD evaluation. They are independent records, not a continuous game or new inference session. The board illustrations reconstruct the supplied state; choosing a move does not run the model or change its saved probabilities. The next case is another recorded state. The selection is illustrative and does not estimate game accuracy or win rate. Snake's reference is a heuristic; tic-tac-toe can have multiple optimal moves. Box Runner and Tile Platformer use the original local simplified rules described below.
+
+[Evidence and source identities](../site/games/evidence.json) · [Exact public source records](../site/games/source-records.jsonl) · [Verification](../site/games/evidence-verification.json)
+
 ## Run without a GPU
 
 Run these commands from the repository root with Python 3.10+. The policy is required so baseline results cannot be mistaken for model results.

@@ -44,6 +44,8 @@ controlled single-variable experiment.
 [Website tables](https://zefan-cai.github.io/open-jev/benchmarks/) ·
 [Source code](https://github.com/Zefan-Cai/Open-Jev)
 
+**New game arcade:** [Snake, tic-tac-toe, Box Runner and Tile Platformer](https://zefan-cai.github.io/open-jev/games/). Pick an action, then reveal the real Open-Jev-27B-v1.1 probabilities for 16 saved game states. Three model/reference disagreements are retained. These are independent recorded decision snapshots, not a live gameplay rollout.
+
 **Open-Jev 27B v1.1:** the complete 127,787-row internal evaluation passed independent audit, with zero failed, missing or duplicate predictions. The [four-panel report](docs/internal-full-evaluation.md) preserves the Open-Jev-2B and Open-Jev-9B results and compares the new 27B checkpoint on both the original and expanded holdouts. Its separate JevBench result is **197/231 (85.28%)**, including **80/111 Hard (72.07%)**; Jev remains ahead by three overall and one Hard answer.
 
 All three model packages contain LoRA adapters, a trained scalar decision head and saved calibration temperature. The 27B v1.1 package uses LoRA rank 8. They require pinned upstream Qwen weights and the Open-Jev loader; base weights are not included. The hosted workbench continues to use the original Open-Jev-2B model.

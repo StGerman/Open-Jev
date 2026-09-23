@@ -11,7 +11,7 @@
   <meta property="og:type" content="website">
   <title>Open-Jev-27B-v1.1 — Typed decisions, open evidence.</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23152032'/%3E%3Cpath d='M18 18h-5v28h5M46 18h5v28h-5M27 19h12v20q0 8-8 8t-8-8' fill='none' stroke='%23bef3d8' stroke-width='4'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="./styles.css?v=v11-launch-20260923">
+  <link rel="stylesheet" href="./styles.css?v=v11-games-20260923">
   <script src="./app.js" defer></script>
   <script src="./jevbench.js" defer></script>
 </head>
@@ -30,7 +30,7 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="#" aria-label="Open-Jev home"><span class="brand-mark" aria-hidden="true">[<b>J</b>]</span> Open-Jev<span class="brand-dot">.</span></a>
-      <nav class="top-nav" aria-label="Main navigation"><a class="workbench-nav-link" href="./workbench/">Try it</a><a href="./v1-1/">v1.1</a><a href="#demos">Demos</a><a href="./benchmarks/">Benchmarks</a><a href="#interface">Interface</a><a href="#latency">Latency</a><a href="#results">Results</a><a href="https://huggingface.co/collections/ZefanCai/open-jev">Hugging Face</a></nav>
+      <nav class="top-nav" aria-label="Main navigation"><a class="workbench-nav-link" href="./workbench/">Try it</a><a href="./v1-1/">v1.1</a><a href="./games/">Games</a><a href="#demos">Demos</a><a href="./benchmarks/">Benchmarks</a><a href="#interface">Interface</a><a href="#latency">Latency</a><a href="#results">Results</a><a href="https://huggingface.co/collections/ZefanCai/open-jev">Hugging Face</a></nav>
       <a class="header-code" href="https://github.com/Zefan-Cai/Open-Jev"><span class="desktop-label">Source code</span><span class="mobile-label">Code</span><svg class="icon"><use href="#i-external"/></svg></a>
     </div>
   </header>
@@ -63,6 +63,11 @@
       <div class="workbench-promo-copy"><span class="eyebrow">FOR EVERYDAY WORK</span><h2 id="workbench-promo-title">Turn a column of text into useful categories.</h2><p class="workbench-english" lang="en">Sort support messages, emails, or feedback using categories you define. No code needed in the workbench.</p></div>
       <div class="workbench-promo-action"><a class="button button-dark" href="./workbench/">Open the workbench<svg class="icon"><use href="#i-arrow"/></svg></a><p lang="en">Powered by Open-Jev-2B on CPU. Start with a few rows.</p></div>
       <ol class="workbench-steps" aria-label="How to classify your text"><li><span>1</span><strong lang="en">Add text or CSV</strong><small lang="en">Paste or import</small></li><li><span>2</span><strong lang="en">Define categories</strong><small lang="en">Describe each label</small></li><li><span>3</span><strong lang="en">Classify each row</strong><small lang="en">Run your task</small></li><li><span>4</span><strong lang="en">Export results</strong><small lang="en">Save a CSV</small></li></ol>
+    </section>
+
+    <section class="arcade-promo wrap" aria-labelledby="arcade-promo-title">
+      <div><span class="eyebrow">NEW / OPEN-JEV-27B-v1.1 GAME DEMOS</span><h2 id="arcade-promo-title">Your move.<br>Then the model's.</h2><p>Read the board, choose an action, then reveal the model's choice and every option's probability.</p><a class="button button-dark" href="./games/">Enter the game arcade <svg class="icon"><use href="#i-arrow"/></svg></a></div>
+      <div><div class="arcade-links"><a href="./games/#snake"><span aria-hidden="true">↳</span><strong>Snake</strong><small>Find the next turn</small></a><a href="./games/#tic-tac-toe"><span aria-hidden="true">× / ○</span><strong>Tic-tac-toe</strong><small>Find the winning square</small></a><a href="./games/#runner"><span aria-hidden="true">↗</span><strong>Box Runner</strong><small>Jump or duck?</small></a><a href="./games/#platformer"><span aria-hidden="true">▂ ▅ ▂</span><strong>Tile Platformer</strong><small>Choose your next move</small></a></div><p class="arcade-scope">16 independent recorded decisions, including 3 model/reference disagreements. Interactive snapshots, not live model gameplay. Original synthetic game states; no third-party game assets.</p></div>
     </section>
 
     <section class="featured-games wrap" id="full-games" aria-labelledby="full-games-title" hidden>

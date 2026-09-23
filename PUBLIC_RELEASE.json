@@ -50,17 +50,18 @@
     },
     {
       "path": "README.md",
-      "source_sha256": "0e8c5925028c85de8ef02bd6fff79a5793e50cd0da06b24afe335c3807098c77",
-      "sha256": "0e8c5925028c85de8ef02bd6fff79a5793e50cd0da06b24afe335c3807098c77",
-      "bytes": 26606,
+      "source_sha256": "67d980c37100383d5bd37cd1194a0cbbe54449060cdc2221d2c31869a80bd5d7",
+      "sha256": "67d980c37100383d5bd37cd1194a0cbbe54449060cdc2221d2c31869a80bd5d7",
+      "bytes": 26952,
       "changes": [
         "English website and workbench presentation. Original evidence, model identities and scientific scores preserved.",
         "Reviewed community Docker deployment and opt-in consumer GPU support, with CPU integration regressions; contributor GPU measurements remain separate from audited release results.",
         "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved.",
         "Record the verified Open-Jev-27B-v1.1 chart, demo video and poster reply, anonymous publication checks, and merged contributor pull requests.",
-        "Use canonical Open-Jev-2B and Open-Jev-9B names in README prose; numeric results unchanged."
+        "Use canonical Open-Jev-2B and Open-Jev-9B names in README prose; numeric results unchanged.",
+        "Add four interactive game decision demos from 16 audited Open-Jev-27B-v1.1 snapshots with all 74 probabilities and three reference-policy disagreements; record the separately authorized public page invitation."
       ],
-      "source_commit": "afd37812e3d0f7b183656e19dc15c05fd17f7916"
+      "source_commit": "85c8465c2dd4e0463a301451e7942da9423d05f5"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -376,9 +377,13 @@
     },
     {
       "path": "docs/games.md",
-      "source_sha256": "fb5a9d8ff136071d030720ba02ba0eada58a2000ab03165dca37841230669723",
-      "sha256": "fb5a9d8ff136071d030720ba02ba0eada58a2000ab03165dca37841230669723",
-      "bytes": 20586
+      "source_sha256": "f6eb8af814a44cf582fc3fbe36028cc8caf814c094a5f04652db84886e2c9cc7",
+      "sha256": "f6eb8af814a44cf582fc3fbe36028cc8caf814c094a5f04652db84886e2c9cc7",
+      "bytes": 21734,
+      "source_commit": "85c8465c2dd4e0463a301451e7942da9423d05f5",
+      "changes": [
+        "Add four interactive game decision demos from 16 audited Open-Jev-27B-v1.1 snapshots with all 74 probabilities and three reference-policy disagreements; record the separately authorized public page invitation."
+      ]
     },
     {
       "path": "docs/get-started.md",
@@ -1615,6 +1620,16 @@
       ]
     },
     {
+      "path": "release/game-arcade-20260923.json",
+      "sha256": "4e7bb1d7642d888f74284cdce8f92af8aa5df052b1e9d79b9856f1e1eb70f4cf",
+      "source_sha256": "4e7bb1d7642d888f74284cdce8f92af8aa5df052b1e9d79b9856f1e1eb70f4cf",
+      "source_commit": "85c8465c2dd4e0463a301451e7942da9423d05f5",
+      "bytes": 3165,
+      "changes": [
+        "Add four interactive game decision demos from 16 audited Open-Jev-27B-v1.1 snapshots with all 74 probabilities and three reference-policy disagreements; record the separately authorized public page invitation."
+      ]
+    },
+    {
       "path": "release/history/PUBLIC_RELEASE.initial.json",
       "sha256": "948cc26de8d28577bfd984cc597949fd89b134e37028260d874f6ed9191b3f2a",
       "bytes": 284858,
@@ -1654,6 +1669,16 @@
       ]
     },
     {
+      "path": "release/social/27b-page-20260923/publication.json",
+      "sha256": "4cb36ca28550cefdace32df103223755a9f3f1e3c1fffe17d8413ab27f467006",
+      "source_sha256": "4cb36ca28550cefdace32df103223755a9f3f1e3c1fffe17d8413ab27f467006",
+      "source_commit": "85c8465c2dd4e0463a301451e7942da9423d05f5",
+      "bytes": 1393,
+      "changes": [
+        "Add four interactive game decision demos from 16 audited Open-Jev-27B-v1.1 snapshots with all 74 probabilities and three reference-policy disagreements; record the separately authorized public page invitation."
+      ]
+    },
+    {
       "path": "release/social/27b-rewritten-20260923/publication.json",
       "source_sha256": "8872d3d1e5356cc1160f04d8a4a25357c97a5917c1a9e6f7f211c67786f58a0f",
       "sha256": "8872d3d1e5356cc1160f04d8a4a25357c97a5917c1a9e6f7f211c67786f58a0f",
@@ -1661,13 +1686,14 @@
     },
     {
       "path": "release/social/README.md",
-      "sha256": "def1ea8b8461acef54657730d5ee5953795062bfb31d89e6f397a5f44a426991",
-      "bytes": 3926,
-      "source_commit": "024117708e43688e7e5c5a715c5ac032f3b32431",
-      "source_sha256": "def1ea8b8461acef54657730d5ee5953795062bfb31d89e6f397a5f44a426991",
+      "sha256": "a17d26eee852fc50c4310af95d73fde107a72898c713fdf310c6b7b384e7fd58",
+      "bytes": 4298,
+      "source_commit": "85c8465c2dd4e0463a301451e7942da9423d05f5",
+      "source_sha256": "a17d26eee852fc50c4310af95d73fde107a72898c713fdf310c6b7b384e7fd58",
       "changes": [
         "Verified provider reference-match comparison, label audit, data publication and website follow-up.",
-        "Record the verified Open-Jev-27B-v1.1 chart, demo video and poster reply, anonymous publication checks, and merged contributor pull requests."
+        "Record the verified Open-Jev-27B-v1.1 chart, demo video and poster reply, anonymous publication checks, and merged contributor pull requests.",
+        "Add four interactive game decision demos from 16 audited Open-Jev-27B-v1.1 snapshots with all 74 probabilities and three reference-policy disagreements; record the separately authorized public page invitation."
       ]
     },
     {
@@ -8193,15 +8219,76 @@
       "bytes": 2015758
     },
     {
+      "path": "site/games/app.js",
+      "sha256": "ea1e46d9f9ff3ee76170d676d2db66e6079af03557340689360aa731564d2f34",
+      "source_sha256": "ea1e46d9f9ff3ee76170d676d2db66e6079af03557340689360aa731564d2f34",
+      "source_commit": "85c8465c2dd4e0463a301451e7942da9423d05f5",
+      "bytes": 27305,
+      "changes": [
+        "Add four interactive game decision demos from 16 audited Open-Jev-27B-v1.1 snapshots with all 74 probabilities and three reference-policy disagreements; record the separately authorized public page invitation."
+      ]
+    },
+    {
+      "path": "site/games/evidence-verification.json",
+      "sha256": "4786370a3172f660756a361cc58fb6410133fecfad176d4af5fe1a005ebb4a23",
+      "source_sha256": "4786370a3172f660756a361cc58fb6410133fecfad176d4af5fe1a005ebb4a23",
+      "source_commit": "85c8465c2dd4e0463a301451e7942da9423d05f5",
+      "bytes": 860,
+      "changes": [
+        "Add four interactive game decision demos from 16 audited Open-Jev-27B-v1.1 snapshots with all 74 probabilities and three reference-policy disagreements; record the separately authorized public page invitation."
+      ]
+    },
+    {
+      "path": "site/games/evidence.json",
+      "sha256": "13e61d8675094c05951082307727344cdfdd23c0542acba2007394620fd331d5",
+      "source_sha256": "13e61d8675094c05951082307727344cdfdd23c0542acba2007394620fd331d5",
+      "source_commit": "85c8465c2dd4e0463a301451e7942da9423d05f5",
+      "bytes": 91633,
+      "changes": [
+        "Add four interactive game decision demos from 16 audited Open-Jev-27B-v1.1 snapshots with all 74 probabilities and three reference-policy disagreements; record the separately authorized public page invitation."
+      ]
+    },
+    {
+      "path": "site/games/index.html",
+      "sha256": "34a197fcff46f63c6b83dcf668d2960bb346dd7180600113cb5e051e67fe4673",
+      "source_sha256": "34a197fcff46f63c6b83dcf668d2960bb346dd7180600113cb5e051e67fe4673",
+      "source_commit": "85c8465c2dd4e0463a301451e7942da9423d05f5",
+      "bytes": 6847,
+      "changes": [
+        "Add four interactive game decision demos from 16 audited Open-Jev-27B-v1.1 snapshots with all 74 probabilities and three reference-policy disagreements; record the separately authorized public page invitation."
+      ]
+    },
+    {
+      "path": "site/games/source-records.jsonl",
+      "sha256": "2147cc0a765292d683a037a3fa706218dd2b5f098562d2847291d0281b0113dd",
+      "source_sha256": "2147cc0a765292d683a037a3fa706218dd2b5f098562d2847291d0281b0113dd",
+      "source_commit": "85c8465c2dd4e0463a301451e7942da9423d05f5",
+      "bytes": 25562,
+      "changes": [
+        "Add four interactive game decision demos from 16 audited Open-Jev-27B-v1.1 snapshots with all 74 probabilities and three reference-policy disagreements; record the separately authorized public page invitation."
+      ]
+    },
+    {
+      "path": "site/games/styles.css",
+      "sha256": "a92ac73c736bda510939a9883795a36744ceefb2092ca5883f38338989e60f86",
+      "source_sha256": "a92ac73c736bda510939a9883795a36744ceefb2092ca5883f38338989e60f86",
+      "source_commit": "85c8465c2dd4e0463a301451e7942da9423d05f5",
+      "bytes": 17030,
+      "changes": [
+        "Add four interactive game decision demos from 16 audited Open-Jev-27B-v1.1 snapshots with all 74 probabilities and three reference-policy disagreements; record the separately authorized public page invitation."
+      ]
+    },
+    {
       "path": "site/index.html",
-      "source_sha256": "d542c2afbccd0551811969816c7fad9f0929b653a2ff0a016f3d4026886ab0e5",
-      "sha256": "d542c2afbccd0551811969816c7fad9f0929b653a2ff0a016f3d4026886ab0e5",
-      "bytes": 37120,
+      "source_sha256": "741ff6b5ad68e36285b90380f84fa3908e651e3a1885a6640be7955604465053",
+      "sha256": "741ff6b5ad68e36285b90380f84fa3908e651e3a1885a6640be7955604465053",
+      "bytes": 38394,
       "changes": [
         "English website and workbench presentation. Original evidence, model identities and scientific scores preserved.",
-        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved.",
+        "Add four interactive game decision demos from 16 audited Open-Jev-27B-v1.1 snapshots with all 74 probabilities and three reference-policy disagreements; record the separately authorized public page invitation."
       ],
-      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca"
+      "source_commit": "85c8465c2dd4e0463a301451e7942da9423d05f5"
     },
     {
       "path": "site/jevbench.js",
@@ -8999,13 +9086,14 @@
     },
     {
       "path": "site/styles.css",
-      "sha256": "e1bde5bc4e580cbd6cb89edaf2dc7216d98d91540331e0f5ec65025e11c08df6",
-      "bytes": 39575,
-      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
-      "source_sha256": "e1bde5bc4e580cbd6cb89edaf2dc7216d98d91540331e0f5ec65025e11c08df6",
+      "sha256": "008039b4600e2a9b76f05180b73a03d217b08e09c0ac7db3817fcafa9df32c39",
+      "bytes": 40694,
+      "source_commit": "85c8465c2dd4e0463a301451e7942da9423d05f5",
+      "source_sha256": "008039b4600e2a9b76f05180b73a03d217b08e09c0ac7db3817fcafa9df32c39",
       "changes": [
         "Audited 27B v1.1 complete evaluation and verified HF model/data release.",
-        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved.",
+        "Add four interactive game decision demos from 16 audited Open-Jev-27B-v1.1 snapshots with all 74 probabilities and three reference-policy disagreements; record the separately authorized public page invitation."
       ]
     },
     {
@@ -9040,12 +9128,13 @@
     },
     {
       "path": "site/v1-1/index.html",
-      "sha256": "2b5ab2bd775848df2a32c5c95c71cb660d047eccac7c0766050bdbfb8c6f4fe2",
-      "source_sha256": "2b5ab2bd775848df2a32c5c95c71cb660d047eccac7c0766050bdbfb8c6f4fe2",
-      "bytes": 17279,
-      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "sha256": "655d5208ac5b71cee6f43e4b230cb3e95b77f3594aad0e96405139350e5471be",
+      "source_sha256": "655d5208ac5b71cee6f43e4b230cb3e95b77f3594aad0e96405139350e5471be",
+      "bytes": 17832,
+      "source_commit": "85c8465c2dd4e0463a301451e7942da9423d05f5",
       "changes": [
-        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved.",
+        "Add four interactive game decision demos from 16 audited Open-Jev-27B-v1.1 snapshots with all 74 probabilities and three reference-policy disagreements; record the separately authorized public page invitation."
       ]
     },
     {
@@ -10127,7 +10216,7 @@
   "archived_remote_context_links_verified": 15,
   "scientific_metrics_modified": false,
   "social_posts_published_by_this_release": false,
-  "current_source_commit": "afd37812e3d0f7b183656e19dc15c05fd17f7916",
+  "current_source_commit": "85c8465c2dd4e0463a301451e7942da9423d05f5",
   "followup_releases": [
     {
       "id": "community-and-provider-comparison-20260920",
@@ -11205,6 +11294,48 @@
         "numeric_token_sequence_unchanged": true
       },
       "existing_numeric_results_modified": false
+    },
+    {
+      "id": "game-arcade-20260923",
+      "created_at": "2026-09-23T09:26:59.973200+00:00",
+      "source_commit": "85c8465c2dd4e0463a301451e7942da9423d05f5",
+      "paths": [
+        "README.md",
+        "docs/games.md",
+        "site/index.html",
+        "site/styles.css",
+        "site/v1-1/index.html",
+        "release/social/README.md",
+        "release/social/27b-page-20260923/publication.json",
+        "release/game-arcade-20260923.json",
+        "site/games/app.js",
+        "site/games/evidence-verification.json",
+        "site/games/evidence.json",
+        "site/games/index.html",
+        "site/games/source-records.jsonl",
+        "site/games/styles.css"
+      ],
+      "description": "Add four interactive game decision demos from 16 audited Open-Jev-27B-v1.1 snapshots with all 74 probabilities and three reference-policy disagreements; record the separately authorized public page invitation.",
+      "page": "https://zefan-cai.github.io/open-jev/games/",
+      "page_invitation_post": "https://x.com/Zefan_Cai/status/2102690015327469979",
+      "recorded_cases": 16,
+      "recorded_probabilities": 74,
+      "game_count": 4,
+      "source_license": "CC0-1.0",
+      "verification": {
+        "independent_evidence_checks": 462,
+        "independent_ui_source_checks": 24,
+        "browser_checks": 461,
+        "viewports": [
+          1440,
+          390,
+          320
+        ],
+        "model_inference": false,
+        "game_actions_executed": false
+      },
+      "existing_numeric_results_modified": false,
+      "private_operational_files_included": false
     }
   ]
 }

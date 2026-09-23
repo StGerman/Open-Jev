@@ -43,3 +43,7 @@ Model releases contain trained LoRA adapters and the decision head, with pinned 
 ## Reproduce
 
 Run `python3 scripts/render_launch_videos.py` with Pillow, ffmpeg and ffprobe installed. No model, GPU or new inference is used. `video-evidence.json` binds the render script, selected catalog and source gameplay records. Original evaluation records remain unchanged.
+
+## v1.1 interactive page invitation
+
+[Dedicated page post](https://x.com/Zefan_Cai/status/2102690015327469979): an everyday-use invitation to spot a mismatched target before confirming a change. The linked demo is an interactive replay of real saved outputs, with no code or setup needed to explore it. [Verified publication receipt](27b-page-20260923/publication.json).

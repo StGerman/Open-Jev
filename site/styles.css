@@ -286,3 +286,12 @@ dialog { padding: 0; border: 1px solid #a1b5d0; border-radius: 10px; width: min(
 #watch-overview { margin-top: 20px; }
 @media (max-width: 1000px) { .launch-hero { gap: 30px; }.launch-stats { gap: 24px; }.launch-stats strong { font-size: 35px; }.launch-results { gap: 24px; } }
 @media (max-width: 760px) { .launch-results { grid-template-columns: 1fr; }.launch-hero { padding-top: 38px; }.launch-hero h1 { font-size: clamp(39px, 8vw, 56px); }.launch-demo-heading, .launch-demo-footer { padding-inline: 20px; }.launch-demo-heading h2 { font-size: 30px; }.launch-results h2 { font-size: 30px; }.launch-stats { gap: 28px; } }
+
+/* Recorded v1.1 game decisions. */
+.arcade-promo{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:center;padding-top:64px;padding-bottom:64px;border-top:1px solid var(--line)}
+.arcade-promo h2{font-size:clamp(34px,4vw,52px);line-height:1.1;letter-spacing:-.045em;margin:16px 0 20px}
+.arcade-promo p{color:var(--muted);max-width:520px}
+.arcade-links{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.arcade-links a{display:flex;flex-direction:column;align-items:flex-start;gap:5px;background:#edf5ef;border:1px solid #c9ded0;border-radius:14px;padding:22px;text-decoration:none;color:#133a30;transition:background .15s}
+.arcade-links a:hover{background:#dcece1}.arcade-links a>span{font:700 27px var(--mono);min-height:44px;color:#177755}.arcade-links strong{font-size:18px}.arcade-links small{font-size:13px;color:#4c6c5f}.arcade-scope{font-size:12px;line-height:1.7;margin:16px 0 0}
+@media(max-width:760px){.arcade-promo{grid-template-columns:1fr;gap:26px;padding-top:40px;padding-bottom:40px}.arcade-links a{padding:16px}.arcade-links strong{font-size:16px}.arcade-links small{font-size:12px}}
