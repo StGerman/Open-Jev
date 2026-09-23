@@ -50,16 +50,17 @@
     },
     {
       "path": "README.md",
-      "source_sha256": "98a860fa8b63770814ae85ea9668fe5ef8eb4a2b0bc44662d9cc15c5d7d19517",
-      "sha256": "98a860fa8b63770814ae85ea9668fe5ef8eb4a2b0bc44662d9cc15c5d7d19517",
-      "bytes": 26558,
+      "source_sha256": "0e8c5925028c85de8ef02bd6fff79a5793e50cd0da06b24afe335c3807098c77",
+      "sha256": "0e8c5925028c85de8ef02bd6fff79a5793e50cd0da06b24afe335c3807098c77",
+      "bytes": 26606,
       "changes": [
         "English website and workbench presentation. Original evidence, model identities and scientific scores preserved.",
         "Reviewed community Docker deployment and opt-in consumer GPU support, with CPU integration regressions; contributor GPU measurements remain separate from audited release results.",
         "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved.",
-        "Record the verified Open-Jev-27B-v1.1 chart, demo video and poster reply, anonymous publication checks, and merged contributor pull requests."
+        "Record the verified Open-Jev-27B-v1.1 chart, demo video and poster reply, anonymous publication checks, and merged contributor pull requests.",
+        "Use canonical Open-Jev-2B and Open-Jev-9B names in README prose; numeric results unchanged."
       ],
-      "source_commit": "024117708e43688e7e5c5a715c5ac032f3b32431"
+      "source_commit": "afd37812e3d0f7b183656e19dc15c05fd17f7916"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -10126,7 +10127,7 @@
   "archived_remote_context_links_verified": 15,
   "scientific_metrics_modified": false,
   "social_posts_published_by_this_release": false,
-  "current_source_commit": "024117708e43688e7e5c5a715c5ac032f3b32431",
+  "current_source_commit": "afd37812e3d0f7b183656e19dc15c05fd17f7916",
   "followup_releases": [
     {
       "id": "community-and-provider-comparison-20260920",
@@ -11191,6 +11192,19 @@
       "private_operational_files_included": false,
       "new_model_inference": false,
       "publication_receipt_source_commit": "caccc4e2ca3a8962fd56702726b0c42c78438489"
+    },
+    {
+      "id": "canonical-readme-model-names-20260923",
+      "created_at": "2026-09-23T09:02:27.941265+00:00",
+      "source_commit": "afd37812e3d0f7b183656e19dc15c05fd17f7916",
+      "paths": [
+        "README.md"
+      ],
+      "description": "Use canonical Open-Jev-2B and Open-Jev-9B names in README prose; numeric results unchanged.",
+      "verification": {
+        "numeric_token_sequence_unchanged": true
+      },
+      "existing_numeric_results_modified": false
     }
   ]
 }

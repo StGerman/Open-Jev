@@ -44,9 +44,9 @@ controlled single-variable experiment.
 [Website tables](https://zefan-cai.github.io/open-jev/benchmarks/) ·
 [Source code](https://github.com/Zefan-Cai/Open-Jev)
 
-**Open-Jev 27B v1.1:** the complete 127,787-row internal evaluation passed independent audit, with zero failed, missing or duplicate predictions. The [four-panel report](docs/internal-full-evaluation.md) preserves the released 2B/9B results and compares the new 27B checkpoint on both the original and expanded holdouts. Its separate JevBench result is **197/231 (85.28%)**, including **80/111 Hard (72.07%)**; Jev remains ahead by three overall and one Hard answer.
+**Open-Jev 27B v1.1:** the complete 127,787-row internal evaluation passed independent audit, with zero failed, missing or duplicate predictions. The [four-panel report](docs/internal-full-evaluation.md) preserves the Open-Jev-2B and Open-Jev-9B results and compares the new 27B checkpoint on both the original and expanded holdouts. Its separate JevBench result is **197/231 (85.28%)**, including **80/111 Hard (72.07%)**; Jev remains ahead by three overall and one Hard answer.
 
-All three model packages contain LoRA adapters, a trained scalar decision head and saved calibration temperature. The 27B v1.1 package uses LoRA rank 8. They require pinned upstream Qwen weights and the Open-Jev loader; base weights are not included. The hosted workbench continues to use the original released 2B model.
+All three model packages contain LoRA adapters, a trained scalar decision head and saved calibration temperature. The 27B v1.1 package uses LoRA rank 8. They require pinned upstream Qwen weights and the Open-Jev loader; base weights are not included. The hosted workbench continues to use the original Open-Jev-2B model.
 
 Open-Jev is an independent implementation inspired by TypeSafe's Jev. It does
 not reproduce proprietary RLCD, private weights or training data, and does not
@@ -58,7 +58,7 @@ Current results: [methods and quality](docs/provider-comparison.md) ·
 [community cases and benchmark plan](docs/community-research-20260921.md).
 
 **New external evaluation:** the [audited JevBench public-subset report](docs/jevbench-public.md)
-compares 27B v1.1, the released 2B/9B baselines, Jev, GPT-5.6 Luna and GPT-6 Astra on all
+compares 27B v1.1, the Open-Jev-2B and Open-Jev-9B baselines, Jev, GPT-5.6 Luna and GPT-6 Astra on all
 231 available public tasks. This is the public subset of 534 tasks; no full-534 score is claimed. It includes every decision, per-tier results,
 probability validation and timing diagnostics, with candidate-order and
 hardware/network limitations. See the [dedicated website table](https://zefan-cai.github.io/open-jev/#jevbench).
@@ -80,7 +80,7 @@ These V3 figures describe prepared data, separate from the audited v1.1 results 
 
 [Demo provenance and reproduction](docs/website-and-videos.md) · [Source inventory](docs/public-capabilities.md) · [Published introduction and demo videos](release/social/README.md).
 
-The [27B v1.1 full internal audit](reports/new27b-internal-full-20260923/report.json) covers every expanded Test/OOD row. The released 2B and 9B checkpoints retain their [original full-data audit](reports/full-data-eval-n1-v1/README.md): each trained on 80,816 release-v2 rows and was evaluated on all 26,452 original held-out rows. New 2B training stopped; new 9B training did not start. Neither has a v1.1 result.
+The [27B v1.1 full internal audit](reports/new27b-internal-full-20260923/report.json) covers every expanded Test/OOD row. The Open-Jev-2B and Open-Jev-9B checkpoints retain their [original full-data audit](reports/full-data-eval-n1-v1/README.md): each trained on 80,816 release-v2 rows and was evaluated on all 26,452 original held-out rows. New 2B training stopped; new 9B training did not start. Neither has a v1.1 result.
 
 | Model | Old Test | Old OOD | Expanded Test | Expanded OOD | JevBench public 231 | Hard 111 |
 |---|---:|---:|---:|---:|---:|---:|
@@ -106,7 +106,7 @@ and completed no platformer episodes.
 
 ## Inference latency
 
-The [latency report](docs/inference-latency.md) measures the released 2B
+The [latency report](docs/inference-latency.md) measures the Open-Jev-2B
 checkpoint with warmed in-process Predictor calls and real loopback HTTP
 requests. It records P50/P95, context and candidate counts, hardware, cache
 mode, all warmup/timed attempts, and cache-output parity. The
@@ -236,7 +236,7 @@ The broader prepared inventory now has **408,884 typed decision rows across
 adding ten separate citation, entity, amount, email, phone, context-retention,
 sponsor-segment, silent-failure, retrieval and mailroom corpora. It contains
 **268,493 train, 16,937 calibration, 15,532 validation, 33,183 test and 74,739 OOD
-rows**. This separately prepared inventory is audited; the original released 2B/9B models have not
+rows**. This separately prepared inventory is audited; the original Open-Jev-2B and Open-Jev-9B models have not
 been retrained on it. These are decision rows, not independent
 documents or episodes. JF100 remains a separate holdout. See the
 [website inventory and video coverage](docs/website-and-videos.md).
@@ -323,7 +323,7 @@ python -m jev.train --model Qwen/Qwen3.5-2B \
   --training-sampling shuffled --checkpoint-every 100
 ```
 
-Training uses frozen source revisions, group-isolated splits, LoRA and a scalar decision head, soft cross-entropy + 0.1 Brier, and temperature fitted only on calibration data. The head starts from the pretrained Yes-minus-No readout. Each candidate is an independent sequence during training. Inference supports [request-local prefix caching](docs/prefix-caching.md): add `--prefix-cache` to prefill shared context/question tokens once, then branch only for candidate suffixes. Branches retain independent attention, convolution and recurrent states. The released 2B BF16/CUDA comparison exceeded the probability tolerance on 9/11 workloads although all 440 paired selected decisions matched; caching remains experimental and off by default. Full 9B/27B comparisons remain pending. Large choices use bounded candidate batches and normalize only after all logits are reassembled.
+Training uses frozen source revisions, group-isolated splits, LoRA and a scalar decision head, soft cross-entropy + 0.1 Brier, and temperature fitted only on calibration data. The head starts from the pretrained Yes-minus-No readout. Each candidate is an independent sequence during training. Inference supports [request-local prefix caching](docs/prefix-caching.md): add `--prefix-cache` to prefill shared context/question tokens once, then branch only for candidate suffixes. Branches retain independent attention, convolution and recurrent states. The Open-Jev-2B BF16/CUDA comparison exceeded the probability tolerance on 9/11 workloads although all 440 paired selected decisions matched; caching remains experimental and off by default. Full 9B/27B comparisons remain pending. Large choices use bounded candidate batches and normalize only after all logits are reassembled.
 
 The [four-card schedule](docs/four-gpu-handoff.md) and [early runtime evidence](reports/27b-ddp-n1/README.md) preserve historical training stages. The completed 27B v1.1 checkpoint is fixed at the predeclared 37,160-step stage; its full internal and public JevBench evaluations passed independent audits. Shared multi-GPU evaluation times are not single-GPU or HTTP/API latency measurements.
 
