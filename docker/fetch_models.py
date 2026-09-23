@@ -71,7 +71,10 @@ manifest_path = package_dir / "package" / "manifest.json"
 verified = 0
 if manifest_path.is_file():
     manifest = json.loads(manifest_path.read_text())
-    for name, entry in sorted(manifest.get("files", {}).items()):
+    files = manifest.get("files")
+    if not isinstance(files, dict) or not files:
+        fail("package verification manifest has no file entries")
+    for name, entry in sorted(files.items()):
         candidate = package_dir / "package" / name
         if not candidate.is_file():
             fail(f"package file listed in manifest is missing: {name}")
@@ -79,7 +82,7 @@ if manifest_path.is_file():
             fail(f"package file does not match the published manifest: {name}")
         verified += 1
 else:
-    print(json.dumps({"event": "manifest_absent", "path": str(manifest_path)}), flush=True)
+    fail(f"package verification manifest missing: {manifest_path}")
 
 snapshot = Path(snapshot_download(repo_id=BASE_MODEL, revision=BASE_REVISION, cache_dir=hub_cache,
                                   ignore_patterns=IGNORE, token=token(), max_workers=4))

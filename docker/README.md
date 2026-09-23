@@ -29,7 +29,8 @@ curl -s -X POST http://127.0.0.1:8791/v1/systemone \
   --data-binary @configs/example-request.json
 ```
 
-The task lab is served from inside the image at <http://127.0.0.1:8791> and
+The text/CSV workbench is served from inside the image at <http://127.0.0.1:8791>,
+the developer task lab at <http://127.0.0.1:8791/examples/index.html>, and
 probability painting at
 <http://127.0.0.1:8791/examples/painting/index.html>.
 
