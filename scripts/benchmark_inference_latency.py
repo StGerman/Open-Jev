@@ -13,6 +13,7 @@ import math
 import os
 from pathlib import Path
 import platform
+import re
 import statistics
 import subprocess
 import threading
@@ -37,6 +38,25 @@ def percentile(values, quantile):
     lower = math.floor(position)
     upper = math.ceil(position)
     return ordered[lower] + (ordered[upper] - ordered[lower]) * (position - lower)
+
+
+def sysctl(name):
+    """macOS hardware identity, e.g. machdep.cpu.brand_string -> "Apple M4 Pro"; None elsewhere."""
+    try:
+        return subprocess.check_output(["sysctl", "-n", name], text=True, timeout=5).strip() or None
+    except (OSError, subprocess.SubprocessError):
+        return None
+
+
+def apple_gpu_statistics():
+    """Apple GPU PerformanceStatistics from ioreg, including Device Utilization %; no sudo needed."""
+    try:
+        text = subprocess.check_output(["ioreg", "-r", "-d", "1", "-w", "0", "-c", "AGXAccelerator"],
+                                       text=True, timeout=10)
+    except (OSError, subprocess.SubprocessError):
+        return None
+    match = re.search(r'"PerformanceStatistics" = (\{.*?\})', text)
+    return match.group(1) if match else None
 
 
 def summarize(samples):
@@ -122,7 +142,8 @@ def benchmark(predictor, workloads, *, output, warmup=3, repetitions=20,
     """One loaded model, concurrency one, four paths alternated within each repeat."""
     import torch
     device = torch.device(predictor.scorer.model.device_name)
-    synchronize = synchronize or (lambda: torch.cuda.synchronize(device) if device.type == "cuda" else None)
+    synchronize = synchronize or (lambda: torch.cuda.synchronize(device) if device.type == "cuda" else
+                                  torch.mps.synchronize() if device.type == "mps" else None)
     original_mode = predictor.prefix_cache
 
     class SynchronizedPredictor:
@@ -155,6 +176,9 @@ def benchmark(predictor, workloads, *, output, warmup=3, repetitions=20,
             synchronize()
             if device.type == "cuda":
                 torch.cuda.reset_peak_memory_stats(device)
+            elif device.type == "mps":
+                # MPS has no peak counter: point-in-time allocator readings, never a peak.
+                sample["mps_allocated_bytes_at_start"] = torch.mps.current_allocated_memory()
             begin = time.perf_counter()
             if transport == "predictor":
                 response = predictor.predict(workload["request"])
@@ -185,6 +209,9 @@ def benchmark(predictor, workloads, *, output, warmup=3, repetitions=20,
                 synchronize()
                 if device.type == "cuda":
                     sample["peak_cuda_allocated_bytes"] = torch.cuda.max_memory_allocated(device)
+                elif device.type == "mps":
+                    sample["mps_allocated_bytes_at_end"] = torch.mps.current_allocated_memory()
+                    sample["mps_driver_allocated_bytes_at_end"] = torch.mps.driver_allocated_memory()
             except Exception as error:
                 sample.update(success=False, fatal=True, synchronization_error=f"{type(error).__name__}: {error}")
             sample["wall_ms"] = (time.perf_counter() - begin) * 1000
@@ -311,21 +338,33 @@ def main():
             predictor = load_predictor(checkpoint=args.checkpoint, device=args.device, batch_size=args.batch_size)
             if torch.device(args.device).type == "cuda":
                 torch.cuda.synchronize(torch.device(args.device))
+            elif torch.device(args.device).type == "mps":
+                torch.mps.synchronize()
             report["model_load_seconds"] = time.perf_counter() - loading
             report["provenance"] = predictor.provenance
             report["temperature"] = predictor.temperature
             report["runtime"] = {"python": platform.python_version(), "platform": platform.platform(),
                                  "hostname": platform.node(), "cuda_visible_devices": os.environ.get("CUDA_VISIBLE_DEVICES"),
                                  "torch_cuda": torch.version.cuda,
-                                 "gpu": torch.cuda.get_device_name(torch.device(args.device)) if torch.device(args.device).type == "cuda" else None,
+                                 "gpu": (torch.cuda.get_device_name(torch.device(args.device)) if torch.device(args.device).type == "cuda"
+                                         else sysctl("machdep.cpu.brand_string") if torch.device(args.device).type == "mps" else None),
                                  "backbone_parameter_dtypes": sorted({str(parameter.dtype) for parameter in predictor.scorer.model.backbone.parameters()}),
                                  "head_parameter_dtypes": sorted({str(parameter.dtype) for parameter in predictor.scorer.model.head.parameters()}),
                                  "attention_implementation": getattr(predictor.scorer.model.backbone.config, "_attn_implementation", None),
                                  **{name: importlib.metadata.version(name) for name in ("torch", "transformers", "peft")}}
-            try:
-                report["gpu_snapshot_before"] = subprocess.check_output(["nvidia-smi", "--query-gpu=index,uuid,name,memory.used,utilization.gpu", "--format=csv,noheader"], text=True)
-            except (OSError, subprocess.CalledProcessError):
-                report["gpu_snapshot_before"] = None
+            if torch.device(args.device).type != "cuda":
+                # Additive for CPU and Apple MPS runs only, so CUDA reports keep their exact shape.
+                # CPU thread count bounds CPU speed; the chip identity is the SoC for both devices.
+                report["runtime"].update(cpu=sysctl("machdep.cpu.brand_string"), torch_num_threads=torch.get_num_threads(),
+                                         pytorch_enable_mps_fallback=os.environ.get("PYTORCH_ENABLE_MPS_FALLBACK"))
+            if torch.device(args.device).type == "mps":
+                report["runtime"]["mps_recommended_max_memory_bytes"] = torch.mps.recommended_max_memory()
+                report["gpu_snapshot_before"] = apple_gpu_statistics()
+            else:
+                try:
+                    report["gpu_snapshot_before"] = subprocess.check_output(["nvidia-smi", "--query-gpu=index,uuid,name,memory.used,utilization.gpu", "--format=csv,noheader"], text=True)
+                except (OSError, subprocess.CalledProcessError):
+                    report["gpu_snapshot_before"] = None
             report.update(benchmark(predictor, workloads, output=args.output, warmup=args.warmup,
                                     repetitions=args.repetitions, probability_tolerance=args.max_probability_error,
                                     max_seconds=args.max_seconds))
