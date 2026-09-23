@@ -120,7 +120,7 @@ def prepare(upstream_path, output):
     return manifest
 
 
-def native_probs(request, response, expected):
+def native_probs(request, response, expected, prefix_cache=False):
     """Bind checkpoint identity; leave distribution rounding to JevBench scoring."""
     if not isinstance(response, dict) or not isinstance(response.get("metadata"), dict):
         raise IdentityError("Missing Open-Jev identity metadata")
@@ -130,8 +130,10 @@ def native_probs(request, response, expected):
     if (actual != expected or type(metadata.get("max_length")) is not int
             or type(metadata.get("temperature")) not in (int, float)
             or not isinstance(metadata.get("prefix_cache"), dict)
-            or metadata["prefix_cache"].get("enabled") is not False):
-        raise IdentityError("Open-Jev identity differs or prefix caching is not disabled")
+            or metadata["prefix_cache"].get("enabled") is not prefix_cache):
+        # A run declares its prefix-cache setting up front (default: off, the
+        # upstream protocol); every response must match it exactly.
+        raise IdentityError("Open-Jev identity differs or prefix caching differs from the run setting")
     if not isinstance(response.get("answers"), dict) or set(response["answers"]) != {"decision"}:
         raise ValueError("Expected one native decision answer")
     question = request["questions"]["decision"]
@@ -156,7 +158,7 @@ def native_probs(request, response, expected):
     return probabilities
 
 
-def attempt(workload, endpoint, expected, timeout):
+def attempt(workload, endpoint, expected, timeout, prefix_cache=False):
     parsed = local_endpoint(endpoint)
     sample = {"request_id": workload["id"], "request_sha256": workload["request_sha256"],
               "success": False, "model": expected["model"], "probs_source": "native",
@@ -178,7 +180,7 @@ def attempt(workload, endpoint, expected, timeout):
         response = strict_json(raw)
         json.dumps(response, allow_nan=False)
         sample["response"] = response
-        sample["probs_as_returned"] = native_probs(workload["request"], response, expected)
+        sample["probs_as_returned"] = native_probs(workload["request"], response, expected, prefix_cache)
         sample["success"] = True
     except (Exception, KeyboardInterrupt) as error:
         sample["error_type"], sample["error"] = type(error).__name__, str(error)
@@ -190,8 +192,11 @@ def attempt(workload, endpoint, expected, timeout):
     return sample
 
 
-def collect(requests, input_sha256, endpoint, expected, output, *, timeout=120, max_seconds=3600):
+def collect(requests, input_sha256, endpoint, expected, output, *, timeout=120, max_seconds=3600,
+            prefix_cache=False):
     validate_identity_config(expected)
+    if type(prefix_cache) is not bool:
+        raise ValueError("prefix_cache must be a boolean")
     local_endpoint(endpoint)
     if (not math.isfinite(timeout) or not 0 < timeout <= 300
             or not math.isfinite(max_seconds) or not 0 < max_seconds <= 86400):
@@ -207,7 +212,7 @@ def collect(requests, input_sha256, endpoint, expected, output, *, timeout=120, 
               "source_sha256": sha256(Path(__file__).read_bytes()), "expected_identity": expected,
               "endpoint": endpoint, "planned_requests": len(workloads), "started_requests": 0,
               "attempted_requests": 0, "successful_requests": 0, "failed_requests": 0,
-              "concurrency": 1, "warmups": 0, "retries": 0, "prefix_cache": False,
+              "concurrency": 1, "warmups": 0, "retries": 0, "prefix_cache": prefix_cache,
               "transport": "http_loopback_fresh_connection",
               "latency_note": "One full-response wall time per task, including response validation. Model loading is outside the clock. These are heterogeneous quality-run diagnostics, not a repeated or matched-hardware latency benchmark.",
               "timeout_seconds": timeout, "max_seconds": max_seconds,
@@ -237,7 +242,7 @@ def collect(requests, input_sha256, endpoint, expected, output, *, timeout=120, 
                 os.fsync(journal.fileno())
                 report["started_requests"] += 1
                 save()
-                sample = attempt(workload, endpoint, expected, min(timeout, remaining))
+                sample = attempt(workload, endpoint, expected, min(timeout, remaining), prefix_cache)
                 stream.write(json.dumps(sample, ensure_ascii=False, allow_nan=False) + "\n")
                 stream.flush()
                 os.fsync(stream.fileno())
@@ -263,6 +268,7 @@ def summarize(upstream_path, run_dir):
     report = strict_json((run_dir / "report.json").read_bytes())
     expected = report["expected_identity"]
     validate_identity_config(expected)
+    prefix_cache = report.get("prefix_cache", False) is True
     workloads, raw = load_workloads(run_dir / "requests.json", report["input_sha256"])
     if raw != json_bytes(request_document(upstream)) or report["upstream_commit"] != UPSTREAM_COMMIT:
         raise ValueError("Saved requests do not exactly match the pinned public subset")
@@ -307,7 +313,7 @@ def summarize(upstream_path, run_dir):
             if (sha256(raw_response) != sample["raw_response_sha256"]
                     or json_bytes(response) != json_bytes(sample["response"]) or sample["http_status"] != 200):
                 raise ValueError("Saved response evidence differs")
-            probs = native_probs(workload["request"], response, expected)
+            probs = native_probs(workload["request"], response, expected, prefix_cache)
             if json_bytes(probs) != json_bytes(sample["probs_as_returned"]):
                 raise ValueError("Saved probabilities differ from the native response")
         scored = upstream.scoring.score_task(probs or {}, task)
@@ -333,7 +339,7 @@ def summarize(upstream_path, run_dir):
                                "argmax_tie_break": "lexicographically_smallest_label",
                                "score_accuracy": "argmax_level_equals_gold_level",
                                "probabilities": "native", "concurrency": 1,
-                               "retries": 0, "warmups": 0, "prefix_cache": False,
+                               "retries": 0, "warmups": 0, "prefix_cache": prefix_cache,
                                "latency_note": report["latency_note"]})
     return aggregate
 
@@ -353,6 +359,9 @@ def main():
     collection.add_argument("--output", type=Path, required=True)
     collection.add_argument("--timeout", type=float, default=120)
     collection.add_argument("--max-seconds", type=float, default=3600)
+    collection.add_argument("--prefix-cache", action="store_true",
+                            help="Expect a server started with --prefix-cache; recorded in the report so "
+                                 "summarize replays with the same setting. Default: off (upstream protocol)")
     summary = commands.add_parser("summarize")
     summary.add_argument("--upstream", type=Path, required=True)
     summary.add_argument("--run-dir", type=Path, required=True)
@@ -368,7 +377,8 @@ def main():
         try:
             result = collect(args.requests, args.input_sha256, args.endpoint,
                              strict_json(args.identity.read_bytes()), args.output,
-                             timeout=args.timeout, max_seconds=args.max_seconds)
+                             timeout=args.timeout, max_seconds=args.max_seconds,
+                             prefix_cache=args.prefix_cache)
         finally:
             for sig, handler in previous.items():
                 signal.signal(sig, handler)

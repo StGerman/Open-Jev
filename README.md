@@ -42,6 +42,8 @@ hardware/network limitations. See the [dedicated website table](https://zefan-ca
 
 **Broader data iteration:** [new community cases](docs/community-research-broadening-20260921.md), [the frozen 148,639-row training mixture](docs/community-hard-training-v2.md), and the [project story](https://zefan-cai.github.io/open-jev/story/) document the sources, construction, controls and limitations. The audited 27B results appear below; changes in model scale, prior training and data prevent attributing the difference to new data alone.
 
+**Consumer GPUs:** [running the 9B in bf16 on one 16 GB card](docs/consumer-gpu.md), with JevBench results on an RTX 4060 Ti, an RTX 5060 Ti and an H100, and the opt-in options that make the cached path faster.
+
 **V3 data prepared:** [natural intent routing](docs/community-routing-v3.md),
 [executable SQL](docs/sql-semantics-v3.md) and [approval/CMS controls](docs/community-workflow-v3.md)
 add 129,288 decision rows, including 74,921 training rows. The frozen next-stage
