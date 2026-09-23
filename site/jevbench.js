@@ -52,7 +52,7 @@
       }
       const rows = report.results.map((result) => {
         const row = document.createElement("tr");
-        const name = cell("th", result.label);
+        const name = cell("th", {"2b": "Open-Jev-2B", "9b": "Open-Jev-9B", "new27b": "Open-Jev-27B-v1.1"}[result.id] || result.label);
         name.scope = "row";
         name.append(cell("small", result.probability_source === "native" ? "Native probabilities" : "Verbalized probabilities"));
         const metric = result.metrics;
@@ -68,7 +68,7 @@
       });
       const tiers = report.results.map((result) => {
         const row = document.createElement("tr");
-        const name = cell("th", result.label);
+        const name = cell("th", {"2b": "Open-Jev-2B", "9b": "Open-Jev-9B", "new27b": "Open-Jev-27B-v1.1"}[result.id] || result.label);
         name.scope = "row";
         row.append(name, ...["original", "easy", "hard"].map((tier) => {
           const metric = result.per_public_tier[tier];

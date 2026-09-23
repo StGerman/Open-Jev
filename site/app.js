@@ -7,7 +7,6 @@ const categoryOrder = ["Workflows", "Games", "Control", "Reasoning", "Extraction
 const state = { items: [], overview: null, category: "All", search: "", visible: 9, selected: null, returnFocus: null, transcriptController: null };
 const modal = $("#demo-modal");
 const video = $("#demo-video");
-const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const phoneEnglishNote = "English display translation. The original request, Unicode character offsets and source video are preserved in the evidence downloads.";
 
 function displayItem(item) {
@@ -348,36 +347,6 @@ all(".primitive-tab").forEach((tab) => {
   });
 });
 
-const scenes = [
-  { context: "“My order arrived damaged.\nCan I get a refund?”", question: "Which team should handle this?", names: ["Billing", "Engineering", "Sales"], probabilities: [94, 4, 2], output: "billing" },
-  { context: "“The next tile is blocked.\nOpen space is on the left.”", question: "Which action fits the visible state?", names: ["Turn left", "Go forward", "Turn right"], probabilities: [88, 3, 9], output: "turn_left" },
-  { context: "“The passage names Paris\nas the destination.”", question: "Which candidate is supported?", names: ["Paris", "Rome", "Berlin"], probabilities: [96, 2, 2], output: "paris" }
-];
-let sceneIndex = 0;
-let heroTimer = null;
-let motionPaused = reducedMotion.matches;
-function animateHero() {
-  sceneIndex = (sceneIndex + 1) % scenes.length;
-  const scene = scenes[sceneIndex];
-  $("#hero-context").replaceChildren(...scene.context.split("\n").flatMap((line, index) => index ? [document.createElement("br"), document.createTextNode(line)] : [document.createTextNode(line)]));
-  $(".decision-divider > span").textContent = scene.question;
-  all(".choice-row").forEach((row, index) => {
-    row.querySelector(".choice-name").textContent = scene.names[index];
-    row.querySelector(".choice-probability").textContent = (scene.probabilities[index] / 100).toFixed(2);
-    row.querySelector(".choice-meter i").style.setProperty("--probability", `${scene.probabilities[index]}%`);
-  });
-  $("#hero-output").textContent = `"${scene.output}"`;
-}
-function updateMotion() {
-  clearInterval(heroTimer);
-  if (!motionPaused && !document.hidden) heroTimer = setInterval(animateHero, 5800);
-  $("#hero-motion").textContent = motionPaused ? "Play animation" : "Pause animation";
-  $("#hero-motion").setAttribute("aria-pressed", String(motionPaused));
-}
-$("#hero-motion").addEventListener("click", () => { motionPaused = !motionPaused; updateMotion(); });
-reducedMotion.addEventListener("change", (event) => { motionPaused = event.matches; updateMotion(); });
-document.addEventListener("visibilitychange", updateMotion);
-updateMotion();
 loadCatalog();
 
 async function loadLatency() {
@@ -414,7 +383,7 @@ async function loadLatency() {
         return tr;
       }));
     };
-    $("#latency-status").textContent = `Measured ${report.measured_at.slice(0, 10)} · released 2B LoRA + decision head · ${report.measured_attempts} timed local requests · ${report.runtime.gpu}`;
+    $("#latency-status").textContent = `Measured ${report.measured_at.slice(0, 10)} · Open-Jev-2B LoRA + decision head · ${report.measured_attempts} timed local requests · ${report.runtime.gpu}`;
     $("#latency-runtime").textContent = `${report.runtime.gpu} · ${report.dtype} · candidate batch ${report.configuration.batch_size}`;
     $("#latency-sampling").textContent = `${report.configuration.warmup} warmups + ${report.configuration.repetitions} timed attempts per workload and path. P50/P95 use successful timed attempts, with linear interpolation. ${report.errors_including_warmup} errors including warmup; all attempts retained. Candidate counts are compiled model input sequences; Noul uses one sequence per question. ${report.scope.cache}.`;
     $("#latency-cache-note").textContent = report.cache_note;

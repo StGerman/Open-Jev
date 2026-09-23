@@ -256,3 +256,33 @@ dialog { padding: 0; border: 1px solid #a1b5d0; border-radius: 10px; width: min(
   .workbench-frame iframe { height: 1500px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
+
+/* Open-Jev-27B-v1.1 release presentation. Historical evidence stays below. */
+.launch-hero { gap: 50px; padding-block: 62px 52px; }
+.launch-hero h1 { font-size: clamp(44px, 4.4vw, 64px); line-height: 1.08; }
+.launch-stats { display: flex; gap: 36px; margin: 28px 0 14px; }
+.launch-stats > div { display: grid; gap: 2px; }
+.launch-stats strong { font-size: 40px; line-height: 1.2; letter-spacing: -.045em; color: var(--ink); }
+.launch-stats strong span { font-size: 24px; color: var(--muted); font-weight: 550; }
+.launch-stats > div > span { font-size: 13px; color: var(--muted); }
+.launch-scope, .launch-package { font-size: 13px; line-height: 1.7; color: var(--muted); }
+.launch-package { margin-bottom: 0; }
+.launch-hero .hero-actions { gap: 14px; }
+.launch-hero .hero-resource-links { margin-bottom: 15px; }
+.launch-demo { background: #f3f3ee; border: 1px solid #cdd8d1; border-radius: 18px; overflow: hidden; box-shadow: 0 16px 50px #122d3510; }
+.launch-demo-heading { padding: 26px 28px 16px; }
+.launch-demo-heading h2 { font-size: 35px; margin: 15px 0 12px; }
+.launch-demo-heading p { font-size: 15px; color: var(--muted); margin-bottom: 0; }
+.launch-demo video { width: 100%; display: block; aspect-ratio: 16/9; background: #132d35; }
+.launch-demo-footer { padding: 18px 28px 24px; }
+.launch-demo-footer p { font-size: 12px; line-height: 1.7; color: var(--muted); }
+.launch-demo-footer a { font-size: 14px; }
+.launch-results { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.25fr); gap: 38px; align-items: center; padding-block: 28px 56px; }
+.launch-results h2 { font-size: 34px; margin: 15px 0 18px; }
+.launch-results p { font-size: 16px; color: var(--muted); }
+.launch-results p.launch-scope { font-size: 13px; }
+.launch-chart { display: block; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.launch-chart img { display: block; width: 100%; height: auto; }
+#watch-overview { margin-top: 20px; }
+@media (max-width: 1000px) { .launch-hero { gap: 30px; }.launch-stats { gap: 24px; }.launch-stats strong { font-size: 35px; }.launch-results { gap: 24px; } }
+@media (max-width: 760px) { .launch-results { grid-template-columns: 1fr; }.launch-hero { padding-top: 38px; }.launch-hero h1 { font-size: clamp(39px, 8vw, 56px); }.launch-demo-heading, .launch-demo-footer { padding-inline: 20px; }.launch-demo-heading h2 { font-size: 30px; }.launch-results h2 { font-size: 30px; }.launch-stats { gap: 28px; } }

@@ -29,7 +29,7 @@ def main():
         path = source / relative
         if not path.is_file() or path.is_symlink() or not path.resolve().is_relative_to(source):
             parser.error(f"missing or unsafe static asset: {relative}")
-    allowed = {".html", ".css", ".js", ".json", ".mp4", ".jpg", ".vtt", ".txt", ".svg", ".md"}
+    allowed = {".html", ".css", ".js", ".json", ".jsonl", ".mp4", ".jpg", ".png", ".vtt", ".txt", ".svg", ".md"}
     stale = []
     if args.prune_media:
         if not catalog.get("showcase_selection"):

@@ -50,14 +50,15 @@
     },
     {
       "path": "README.md",
-      "source_sha256": "411ca8864d62d422295367af83b72cea1474dac9d12ecebeda812130ce95fdeb",
-      "sha256": "411ca8864d62d422295367af83b72cea1474dac9d12ecebeda812130ce95fdeb",
-      "bytes": 25246,
+      "source_sha256": "53e9b10eb81356d7964f586e5387711703ffe37b2a923ef157e1a675662936b9",
+      "sha256": "53e9b10eb81356d7964f586e5387711703ffe37b2a923ef157e1a675662936b9",
+      "bytes": 26322,
       "changes": [
         "English website and workbench presentation. Original evidence, model identities and scientific scores preserved.",
-        "Reviewed community Docker deployment and opt-in consumer GPU support, with CPU integration regressions; contributor GPU measurements remain separate from audited release results."
+        "Reviewed community Docker deployment and opt-in consumer GPU support, with CPU integration regressions; contributor GPU measurements remain separate from audited release results.",
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
       ],
-      "source_commit": "7d57c968053320c215ff039092d2305d6deea330"
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -1391,6 +1392,206 @@
       ]
     },
     {
+      "path": "release/demos/v1.1-confirmation-gate-20260923/README.md",
+      "sha256": "69c92ba441b8f65cd361ccdd317d2afa5e37a5dd3a82f753f055ede58b5a90cb",
+      "source_sha256": "69c92ba441b8f65cd361ccdd317d2afa5e37a5dd3a82f753f055ede58b5a90cb",
+      "bytes": 3865,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "changes": [
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+      ]
+    },
+    {
+      "path": "release/demos/v1.1-confirmation-gate-20260923/captions.vtt",
+      "sha256": "ea12029f2024dec954b8ebe91def7fb522c1335031df1b9b83cdfa9f6b65e341",
+      "source_sha256": "ea12029f2024dec954b8ebe91def7fb522c1335031df1b9b83cdfa9f6b65e341",
+      "bytes": 962,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "changes": [
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+      ]
+    },
+    {
+      "path": "release/demos/v1.1-confirmation-gate-20260923/contact-sheet.jpg",
+      "sha256": "7a621c83ca3ae8ee1e8acd6f25d96e495991943ef044ff2862c564dce21af131",
+      "source_sha256": "7a621c83ca3ae8ee1e8acd6f25d96e495991943ef044ff2862c564dce21af131",
+      "bytes": 271398,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "changes": [
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+      ]
+    },
+    {
+      "path": "release/demos/v1.1-confirmation-gate-20260923/evidence.json",
+      "sha256": "a4c08e3abdd9dd4ca105270cccd55a583fd0a7f38a1dbd8b0d991f64d099ce84",
+      "source_sha256": "a4c08e3abdd9dd4ca105270cccd55a583fd0a7f38a1dbd8b0d991f64d099ce84",
+      "bytes": 19212,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "changes": [
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+      ]
+    },
+    {
+      "path": "release/demos/v1.1-confirmation-gate-20260923/frame-01.png",
+      "sha256": "b201ae4d585fe69bf8a88020dcd5c090a7a0e563dac48c83c55ab478175fa333",
+      "source_sha256": "b201ae4d585fe69bf8a88020dcd5c090a7a0e563dac48c83c55ab478175fa333",
+      "bytes": 74932,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "changes": [
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+      ]
+    },
+    {
+      "path": "release/demos/v1.1-confirmation-gate-20260923/frame-07.png",
+      "sha256": "249c10c229861584484d883b634df2c38e7e80e39692550dd363278af1dc745b",
+      "source_sha256": "249c10c229861584484d883b634df2c38e7e80e39692550dd363278af1dc745b",
+      "bytes": 91814,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "changes": [
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+      ]
+    },
+    {
+      "path": "release/demos/v1.1-confirmation-gate-20260923/frame-12.png",
+      "sha256": "20b60da7134a25e73a168b280c1aea2322e9f7b4ca81352f0e4daa34d1721444",
+      "source_sha256": "20b60da7134a25e73a168b280c1aea2322e9f7b4ca81352f0e4daa34d1721444",
+      "bytes": 75741,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "changes": [
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+      ]
+    },
+    {
+      "path": "release/demos/v1.1-confirmation-gate-20260923/frame-20.png",
+      "sha256": "e3b50147962f5fb422d7b51be9dec840d330b2324c2280181be9dccb92b172fe",
+      "source_sha256": "e3b50147962f5fb422d7b51be9dec840d330b2324c2280181be9dccb92b172fe",
+      "bytes": 94333,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "changes": [
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+      ]
+    },
+    {
+      "path": "release/demos/v1.1-confirmation-gate-20260923/frame-26.png",
+      "sha256": "e7f194d29e5705b584cab9779e7c90df335e7369e70a74c5798322d5be2ea337",
+      "source_sha256": "e7f194d29e5705b584cab9779e7c90df335e7369e70a74c5798322d5be2ea337",
+      "bytes": 69109,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "changes": [
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+      ]
+    },
+    {
+      "path": "release/demos/v1.1-confirmation-gate-20260923/frame-30.png",
+      "sha256": "907276dad651b1ad6fecdbfa841e79f2fc174831c196ac2827a2b4442699a0cd",
+      "source_sha256": "907276dad651b1ad6fecdbfa841e79f2fc174831c196ac2827a2b4442699a0cd",
+      "bytes": 56461,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "changes": [
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+      ]
+    },
+    {
+      "path": "release/demos/v1.1-confirmation-gate-20260923/index.html",
+      "sha256": "69e994590e7ec39591e6f88376ad1a9732d5e350f8ab5040385b624114752fb2",
+      "source_sha256": "69e994590e7ec39591e6f88376ad1a9732d5e350f8ab5040385b624114752fb2",
+      "bytes": 13138,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "changes": [
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+      ]
+    },
+    {
+      "path": "release/demos/v1.1-confirmation-gate-20260923/manifest.json",
+      "sha256": "01ee2f1f61706e6c5b680a1bbe87811439e5005257fc01700da51691e58dc563",
+      "source_sha256": "01ee2f1f61706e6c5b680a1bbe87811439e5005257fc01700da51691e58dc563",
+      "bytes": 2713,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "changes": [
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+      ]
+    },
+    {
+      "path": "release/demos/v1.1-confirmation-gate-20260923/poster.jpg",
+      "sha256": "44285bf2a2384cdd22e6eaaacbb55a60d448e76974a2b264c50c339f44800eca",
+      "source_sha256": "44285bf2a2384cdd22e6eaaacbb55a60d448e76974a2b264c50c339f44800eca",
+      "bytes": 119313,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "changes": [
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+      ]
+    },
+    {
+      "path": "release/demos/v1.1-confirmation-gate-20260923/poster.png",
+      "sha256": "e29b6de76fe48783d9f67e3556342894ac6b870811f4869da96af1062b8e5d00",
+      "source_sha256": "e29b6de76fe48783d9f67e3556342894ac6b870811f4869da96af1062b8e5d00",
+      "bytes": 74921,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "changes": [
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+      ]
+    },
+    {
+      "path": "release/demos/v1.1-confirmation-gate-20260923/render-receipt.json",
+      "sha256": "db3acaafd9d53c489e01e32ea19c8cbf3418638885803a403f880f04e69cd418",
+      "source_sha256": "db3acaafd9d53c489e01e32ea19c8cbf3418638885803a403f880f04e69cd418",
+      "bytes": 2548,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "changes": [
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+      ]
+    },
+    {
+      "path": "release/demos/v1.1-confirmation-gate-20260923/render.py",
+      "sha256": "e723e54c2488068fff8f324d24e7023413723a5f0a508c98b607fca6e069065d",
+      "source_sha256": "e723e54c2488068fff8f324d24e7023413723a5f0a508c98b607fca6e069065d",
+      "bytes": 11649,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "changes": [
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+      ]
+    },
+    {
+      "path": "release/demos/v1.1-confirmation-gate-20260923/replay.mp4",
+      "sha256": "70deec71219ab0db44ecdd90751f2e6d24b23215458f8da2502f6a5809357ece",
+      "source_sha256": "70deec71219ab0db44ecdd90751f2e6d24b23215458f8da2502f6a5809357ece",
+      "bytes": 954817,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "changes": [
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+      ]
+    },
+    {
+      "path": "release/demos/v1.1-confirmation-gate-20260923/script.md",
+      "sha256": "e21fe8b1a6ede7ba7f43a9a27f7a22d325d3575e54f96e0b9a3d823ba9bcbe10",
+      "source_sha256": "e21fe8b1a6ede7ba7f43a9a27f7a22d325d3575e54f96e0b9a3d823ba9bcbe10",
+      "bytes": 1237,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "changes": [
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+      ]
+    },
+    {
+      "path": "release/demos/v1.1-confirmation-gate-20260923/source-records.jsonl",
+      "sha256": "eb4dd1dcb29203045d032dd32c3248f8aec656de5d583580f80a3c752f5d6ed7",
+      "source_sha256": "eb4dd1dcb29203045d032dd32c3248f8aec656de5d583580f80a3c752f5d6ed7",
+      "bytes": 7942,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "changes": [
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+      ]
+    },
+    {
+      "path": "release/demos/v1.1-confirmation-gate-20260923/verify.py",
+      "sha256": "f01b96dae5730446e8b565f46ecd76aaa36f78f8598523a1a1a889b2cd4e0e0c",
+      "source_sha256": "f01b96dae5730446e8b565f46ecd76aaa36f78f8598523a1a1a889b2cd4e0e0c",
+      "bytes": 2809,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "changes": [
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+      ]
+    },
+    {
       "path": "release/english-ui-20260923.json",
       "sha256": "1729aa26e71a5a47ebffb574d0a5a6f669f6c18365d2027121da45c8539e719e",
       "bytes": 24582,
@@ -1573,6 +1774,16 @@
       "source_sha256": "38b059f64fd89d3a5c18be6bc35124875a1f45ee058153a6a9b18e2327295027",
       "changes": [
         "Verified provider reference-match comparison, label audit, data publication and website follow-up."
+      ]
+    },
+    {
+      "path": "release/v1.1-promotion-20260923.json",
+      "sha256": "828938cbda066cb2b533ba306fdaf6bc23adb4933f8d2c1e5e72116f9a29bce0",
+      "source_sha256": "828938cbda066cb2b533ba306fdaf6bc23adb4933f8d2c1e5e72116f9a29bce0",
+      "bytes": 3563,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "changes": [
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
       ]
     },
     {
@@ -7728,9 +7939,13 @@
     },
     {
       "path": "scripts/export_site.py",
-      "source_sha256": "1736e0c1049b37350808ab8e3599b5b0b482c1c06d63e90bb52dc1bc1ca01bcd",
-      "sha256": "1736e0c1049b37350808ab8e3599b5b0b482c1c06d63e90bb52dc1bc1ca01bcd",
-      "bytes": 3066
+      "source_sha256": "fb0c0f5575709cec5c49a952597831a2e808a125090377f4ea1b3c08a89c8ebb",
+      "sha256": "fb0c0f5575709cec5c49a952597831a2e808a125090377f4ea1b3c08a89c8ebb",
+      "bytes": 3084,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "changes": [
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+      ]
     },
     {
       "path": "scripts/internal_eval_campaign.py",
@@ -7905,24 +8120,26 @@
     },
     {
       "path": "site/app.js",
-      "sha256": "c1f8e02888307a01f692dc0d32a15191b8bfe9d495c18aec474eadde0e2af5a5",
-      "bytes": 34029,
-      "source_commit": "cbaa163a295b769aa0ab84fe6369ca733318d13a",
-      "source_sha256": "c1f8e02888307a01f692dc0d32a15191b8bfe9d495c18aec474eadde0e2af5a5",
+      "sha256": "b126e566618d7334dd94fae192394551311f48377b6ee090ef5bb067c30f72e0",
+      "bytes": 31874,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "source_sha256": "b126e566618d7334dd94fae192394551311f48377b6ee090ef5bb067c30f72e0",
       "changes": [
-        "English website and workbench presentation. Original evidence, model identities and scientific scores preserved."
+        "English website and workbench presentation. Original evidence, model identities and scientific scores preserved.",
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
       ]
     },
     {
       "path": "site/benchmarks/index.html",
-      "source_sha256": "ffa51e07dac4d9c49df13cc6ec5cc5a090261232c5287e56e517b465ff345a72",
+      "source_sha256": "ccb3e54501c6ac7fc6f1ec1b1825930173d33d146d1288af50f7c6e51f49fab1",
       "source_origin": "Authored in the public checkout from preserved published reports; no private source file at the baseline source commit.",
-      "sha256": "ffa51e07dac4d9c49df13cc6ec5cc5a090261232c5287e56e517b465ff345a72",
-      "bytes": 18703,
+      "sha256": "ccb3e54501c6ac7fc6f1ec1b1825930173d33d146d1288af50f7c6e51f49fab1",
+      "bytes": 18610,
       "changes": [
-        "English website and workbench presentation. Original evidence, model identities and scientific scores preserved."
+        "English website and workbench presentation. Original evidence, model identities and scientific scores preserved.",
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
       ],
-      "source_commit": "cbaa163a295b769aa0ab84fe6369ca733318d13a"
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca"
     },
     {
       "path": "site/catalog.json",
@@ -7932,22 +8149,24 @@
     },
     {
       "path": "site/index.html",
-      "source_sha256": "02cd454b34eb5dc9fb3e6094db955e7c461087f15618c941fcd979df15299a6d",
-      "sha256": "02cd454b34eb5dc9fb3e6094db955e7c461087f15618c941fcd979df15299a6d",
-      "bytes": 37088,
+      "source_sha256": "d542c2afbccd0551811969816c7fad9f0929b653a2ff0a016f3d4026886ab0e5",
+      "sha256": "d542c2afbccd0551811969816c7fad9f0929b653a2ff0a016f3d4026886ab0e5",
+      "bytes": 37120,
       "changes": [
-        "English website and workbench presentation. Original evidence, model identities and scientific scores preserved."
+        "English website and workbench presentation. Original evidence, model identities and scientific scores preserved.",
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
       ],
-      "source_commit": "cbaa163a295b769aa0ab84fe6369ca733318d13a"
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca"
     },
     {
       "path": "site/jevbench.js",
-      "sha256": "135e8c1dcb414ea7536f9e78cc55b8d14c7bfaa0b4231e76d3b881b6115bc0f5",
-      "bytes": 4992,
-      "source_commit": "19d1a5bb04b1b61d7cae1e8440cd2afdfdeccd8d",
-      "source_sha256": "135e8c1dcb414ea7536f9e78cc55b8d14c7bfaa0b4231e76d3b881b6115bc0f5",
+      "sha256": "376e1ba32e28bfe4efdf764afac87b6e615be5b60d61b528d8e58520dc41aecd",
+      "bytes": 5168,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "source_sha256": "376e1ba32e28bfe4efdf764afac87b6e615be5b60d61b528d8e58520dc41aecd",
       "changes": [
-        "Audited 27B v1.1 complete evaluation and verified HF model/data release."
+        "Audited 27B v1.1 complete evaluation and verified HF model/data release.",
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
       ]
     },
     {
@@ -8724,22 +8943,114 @@
     },
     {
       "path": "site/story/index.html",
-      "source_sha256": "4ee0ffe20c48f98bbc91508b6cf883332ed9c25d97366616f358239c4fd1bb56",
-      "sha256": "4ee0ffe20c48f98bbc91508b6cf883332ed9c25d97366616f358239c4fd1bb56",
-      "bytes": 63566,
+      "source_sha256": "d65eb188f7b82500269e0879c7a7d21456e0878e7fd48fc764030e01f1282701",
+      "sha256": "d65eb188f7b82500269e0879c7a7d21456e0878e7fd48fc764030e01f1282701",
+      "bytes": 63575,
       "changes": [
-        "English website and workbench presentation. Original evidence, model identities and scientific scores preserved."
+        "English website and workbench presentation. Original evidence, model identities and scientific scores preserved.",
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
       ],
-      "source_commit": "cbaa163a295b769aa0ab84fe6369ca733318d13a"
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca"
     },
     {
       "path": "site/styles.css",
-      "sha256": "58fda778d34ca65005ee23817220b5b7e6a7cae9887e28393bdfe154cda51ce8",
-      "bytes": 37122,
-      "source_commit": "19d1a5bb04b1b61d7cae1e8440cd2afdfdeccd8d",
-      "source_sha256": "58fda778d34ca65005ee23817220b5b7e6a7cae9887e28393bdfe154cda51ce8",
+      "sha256": "e1bde5bc4e580cbd6cb89edaf2dc7216d98d91540331e0f5ec65025e11c08df6",
+      "bytes": 39575,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "source_sha256": "e1bde5bc4e580cbd6cb89edaf2dc7216d98d91540331e0f5ec65025e11c08df6",
       "changes": [
-        "Audited 27B v1.1 complete evaluation and verified HF model/data release."
+        "Audited 27B v1.1 complete evaluation and verified HF model/data release.",
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+      ]
+    },
+    {
+      "path": "site/v1-1/benchmark-poster.png",
+      "sha256": "578837bea31c380ee4c0bcd23c1b4ddffdda3bc5b5dd2075bdd79ea7e5704f0d",
+      "source_sha256": "578837bea31c380ee4c0bcd23c1b4ddffdda3bc5b5dd2075bdd79ea7e5704f0d",
+      "bytes": 96972,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "changes": [
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+      ]
+    },
+    {
+      "path": "site/v1-1/captions.vtt",
+      "sha256": "ea12029f2024dec954b8ebe91def7fb522c1335031df1b9b83cdfa9f6b65e341",
+      "source_sha256": "ea12029f2024dec954b8ebe91def7fb522c1335031df1b9b83cdfa9f6b65e341",
+      "bytes": 962,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "changes": [
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+      ]
+    },
+    {
+      "path": "site/v1-1/evidence.json",
+      "sha256": "a4c08e3abdd9dd4ca105270cccd55a583fd0a7f38a1dbd8b0d991f64d099ce84",
+      "source_sha256": "a4c08e3abdd9dd4ca105270cccd55a583fd0a7f38a1dbd8b0d991f64d099ce84",
+      "bytes": 19212,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "changes": [
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+      ]
+    },
+    {
+      "path": "site/v1-1/index.html",
+      "sha256": "2b5ab2bd775848df2a32c5c95c71cb660d047eccac7c0766050bdbfb8c6f4fe2",
+      "source_sha256": "2b5ab2bd775848df2a32c5c95c71cb660d047eccac7c0766050bdbfb8c6f4fe2",
+      "bytes": 17279,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "changes": [
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+      ]
+    },
+    {
+      "path": "site/v1-1/poster.jpg",
+      "sha256": "44285bf2a2384cdd22e6eaaacbb55a60d448e76974a2b264c50c339f44800eca",
+      "source_sha256": "44285bf2a2384cdd22e6eaaacbb55a60d448e76974a2b264c50c339f44800eca",
+      "bytes": 119313,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "changes": [
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+      ]
+    },
+    {
+      "path": "site/v1-1/poster.png",
+      "sha256": "e29b6de76fe48783d9f67e3556342894ac6b870811f4869da96af1062b8e5d00",
+      "source_sha256": "e29b6de76fe48783d9f67e3556342894ac6b870811f4869da96af1062b8e5d00",
+      "bytes": 74921,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "changes": [
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+      ]
+    },
+    {
+      "path": "site/v1-1/replay.mp4",
+      "sha256": "70deec71219ab0db44ecdd90751f2e6d24b23215458f8da2502f6a5809357ece",
+      "source_sha256": "70deec71219ab0db44ecdd90751f2e6d24b23215458f8da2502f6a5809357ece",
+      "bytes": 954817,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "changes": [
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+      ]
+    },
+    {
+      "path": "site/v1-1/script.md",
+      "sha256": "e21fe8b1a6ede7ba7f43a9a27f7a22d325d3575e54f96e0b9a3d823ba9bcbe10",
+      "source_sha256": "e21fe8b1a6ede7ba7f43a9a27f7a22d325d3575e54f96e0b9a3d823ba9bcbe10",
+      "bytes": 1237,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "changes": [
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
+      ]
+    },
+    {
+      "path": "site/v1-1/source-records.jsonl",
+      "sha256": "eb4dd1dcb29203045d032dd32c3248f8aec656de5d583580f80a3c752f5d6ed7",
+      "source_sha256": "eb4dd1dcb29203045d032dd32c3248f8aec656de5d583580f80a3c752f5d6ed7",
+      "bytes": 7942,
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "changes": [
+        "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved."
       ]
     },
     {
@@ -9771,7 +10082,7 @@
   "archived_remote_context_links_verified": 15,
   "scientific_metrics_modified": false,
   "social_posts_published_by_this_release": false,
-  "current_source_commit": "7d57c968053320c215ff039092d2305d6deea330",
+  "current_source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
   "followup_releases": [
     {
       "id": "community-and-provider-comparison-20260920",
@@ -10731,6 +11042,73 @@
         "1": "d047c0bd916d2764314e7538f9101992eaf1f04b"
       },
       "updated_head_review": "PR #1 merged the existing public base into its contributor branch after the initial review. The Docker implementation is unchanged; the maintainer README conflict resolution is retained byte-for-byte."
+    },
+    {
+      "id": "v1.1-promotion-20260923",
+      "created_at": "2026-09-23T08:49:50.865610+00:00",
+      "source_commit": "c7fa2524ebe529042a45d453a95c7d68840ab7ca",
+      "paths": [
+        "README.md",
+        "release/demos/v1.1-confirmation-gate-20260923/README.md",
+        "release/demos/v1.1-confirmation-gate-20260923/captions.vtt",
+        "release/demos/v1.1-confirmation-gate-20260923/contact-sheet.jpg",
+        "release/demos/v1.1-confirmation-gate-20260923/evidence.json",
+        "release/demos/v1.1-confirmation-gate-20260923/frame-01.png",
+        "release/demos/v1.1-confirmation-gate-20260923/frame-07.png",
+        "release/demos/v1.1-confirmation-gate-20260923/frame-12.png",
+        "release/demos/v1.1-confirmation-gate-20260923/frame-20.png",
+        "release/demos/v1.1-confirmation-gate-20260923/frame-26.png",
+        "release/demos/v1.1-confirmation-gate-20260923/frame-30.png",
+        "release/demos/v1.1-confirmation-gate-20260923/index.html",
+        "release/demos/v1.1-confirmation-gate-20260923/manifest.json",
+        "release/demos/v1.1-confirmation-gate-20260923/poster.jpg",
+        "release/demos/v1.1-confirmation-gate-20260923/poster.png",
+        "release/demos/v1.1-confirmation-gate-20260923/render-receipt.json",
+        "release/demos/v1.1-confirmation-gate-20260923/render.py",
+        "release/demos/v1.1-confirmation-gate-20260923/replay.mp4",
+        "release/demos/v1.1-confirmation-gate-20260923/script.md",
+        "release/demos/v1.1-confirmation-gate-20260923/source-records.jsonl",
+        "release/demos/v1.1-confirmation-gate-20260923/verify.py",
+        "release/v1.1-promotion-20260923.json",
+        "scripts/export_site.py",
+        "site/app.js",
+        "site/benchmarks/index.html",
+        "site/index.html",
+        "site/jevbench.js",
+        "site/story/index.html",
+        "site/styles.css",
+        "site/v1-1/benchmark-poster.png",
+        "site/v1-1/captions.vtt",
+        "site/v1-1/evidence.json",
+        "site/v1-1/index.html",
+        "site/v1-1/poster.jpg",
+        "site/v1-1/poster.png",
+        "site/v1-1/replay.mp4",
+        "site/v1-1/script.md",
+        "site/v1-1/source-records.jsonl"
+      ],
+      "description": "Prominent Open-Jev-27B-v1.1 launch page, benchmark poster and edited playback of two audited CC0 synthetic model-output records; published metrics and released-model workbench identity preserved.",
+      "new_model_inference": false,
+      "existing_numeric_results_modified": false,
+      "raw_training_data_included": false,
+      "private_operational_files_included": false,
+      "source_records": {
+        "count": 2,
+        "license": "CC0-1.0",
+        "type": "original synthetic records already present in the public dataset",
+        "source_examples_imported": false
+      },
+      "model_revision": "28cf73067d5b337860bbef3c85b8b82ba8730956",
+      "dataset_revision": "10ad6888333fa97f8c948192797bad3de3040802",
+      "video_sha256": "70deec71219ab0db44ecdd90751f2e6d24b23215458f8da2502f6a5809357ece",
+      "workbench_model": "released Open-Jev-2B on CPU",
+      "verification": {
+        "local_launch_checks": 58,
+        "local_legacy_checks": 74,
+        "independent_evidence_audit": true,
+        "independent_media_audit": true,
+        "independent_public_source_scan": true
+      }
     }
   ]
 }

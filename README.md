@@ -1,8 +1,27 @@
 # Open-Jev
 
-**Open probability decisions with Qwen3.5-2B, Qwen3.5-9B and Qwen3.8-27B.**
+**Open-Jev-27B-v1.1 is here. Give your app a decision, with probabilities.**
 Supply a context, questions and candidates; get typed probabilities directly,
 without autoregressive answer generation or parsing generated JSON.
+
+### Same preview. Different target.
+
+[![Open-Jev-27B-v1.1: same preview, different target](site/v1-1/poster.jpg)](https://zefan-cai.github.io/open-jev/v1-1/)
+
+**[Watch the 32-second demo and try the interactive replay →](https://zefan-cai.github.io/open-jev/v1-1/)**
+
+Two confirmation-gate cases. A misleading preview. Seven possible decisions.
+Inspect how Open-Jev-27B-v1.1 ranks them, then compare the saved probabilities
+when the actual target changes. The video replays real model outputs from
+synthetic held-out cases; it is edited playback, with no browser actions executed.
+Candidate order also differs between the original cases, so this is not a
+controlled single-variable experiment.
+
+**Build with it:** [Model](https://huggingface.co/ZefanCai/Open-Jev-27B-v1.1) ·
+[Public dataset](https://huggingface.co/datasets/ZefanCai/Open-Jev-v1.1) ·
+[Demo video](https://zefan-cai.github.io/open-jev/v1-1/replay.mp4) ·
+[Poster](https://zefan-cai.github.io/open-jev/v1-1/poster.png) ·
+[Replay evidence](release/demos/v1.1-confirmation-gate-20260923/README.md)
 
 **Project website:** [zefan-cai.github.io/open-jev](https://zefan-cai.github.io/open-jev/) — demos, measured results and project background.
 
@@ -61,9 +80,9 @@ The [27B v1.1 full internal audit](reports/new27b-internal-full-20260923/report.
 
 | Model | Old Test | Old OOD | Expanded Test | Expanded OOD | JevBench public 231 | Hard 111 |
 |---|---:|---:|---:|---:|---:|---:|
-| Released 2B | 9,515 / 10,046 (94.71%) | 13,287 / 15,446 (86.02%) | Not evaluated | Not evaluated | 150 / 231 (64.94%) | 46 / 111 (41.44%) |
-| Released 9B | 9,799 / 10,046 (97.54%) | 14,205 / 15,446 (91.97%) | Not evaluated | Not evaluated | 179 / 231 (77.49%) | 66 / 111 (59.46%) |
-| 27B v1.1 | 9,876 / 10,046 (98.31%) | 14,825 / 15,446 (95.98%) | 41,357 / 42,789 (96.65%) | 80,934 / 83,924 (96.44%) | 197 / 231 (85.28%) | 80 / 111 (72.07%) |
+| Open-Jev-2B | 9,515 / 10,046 (94.71%) | 13,287 / 15,446 (86.02%) | Not evaluated | Not evaluated | 150 / 231 (64.94%) | 46 / 111 (41.44%) |
+| Open-Jev-9B | 9,799 / 10,046 (97.54%) | 14,205 / 15,446 (91.97%) | Not evaluated | Not evaluated | 179 / 231 (77.49%) | 66 / 111 (59.46%) |
+| Open-Jev-27B-v1.1 | 9,876 / 10,046 (98.31%) | 14,825 / 15,446 (95.98%) | 41,357 / 42,789 (96.65%) | 80,934 / 83,924 (96.44%) | 197 / 231 (85.28%) | 80 / 111 (72.07%) |
 
 Old Test/OOD cover all 10,532 / 15,920 rows; Expanded Test/OOD cover all 43,301 / 84,486 rows. Internal cells show hard-correct / hard rows. Soft targets (486 / 474 / 512 / 562 rows, respectively) remain in probability metrics. The old panels are unchanged-content subsets of the expanded panels; they overlap and must not be added together.
 
