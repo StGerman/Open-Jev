@@ -11,7 +11,10 @@ import os
 import unittest
 from unittest.mock import patch
 
-from tests.test_prefix_cache import HAS_RUNTIME, PROFILES, PrefixCacheTest, mixed_request, tiny_model
+# Import the module, not PrefixCacheTest itself: a TestCase class bound in this
+# module's globals would be collected and run a second time from this file.
+from tests import test_prefix_cache as base
+from tests.test_prefix_cache import HAS_RUNTIME, PROFILES, mixed_request, tiny_model
 
 if HAS_RUNTIME:
     import torch
@@ -20,7 +23,7 @@ if HAS_RUNTIME:
 
 @unittest.skipUnless(HAS_RUNTIME, "requires torch, transformers and peft")
 class RaggedSuffixTest(unittest.TestCase):
-    assert_rows_close = PrefixCacheTest.assert_rows_close
+    assert_rows_close = base.PrefixCacheTest.assert_rows_close
 
     def test_ragged_batches_match_uncached_scoring(self):
         request = mixed_request()
