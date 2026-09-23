@@ -8,6 +8,16 @@
   "files_scope": "Current release payload except PUBLIC_RELEASE.json; initial manifest preserved under release/history.",
   "files": [
     {
+      "path": ".dockerignore",
+      "sha256": "1048e1e8163b4c7cad0ce427ccb624e9a3d23e50df5ad5b75b78bda349c2f3e1",
+      "source_sha256": "1048e1e8163b4c7cad0ce427ccb624e9a3d23e50df5ad5b75b78bda349c2f3e1",
+      "bytes": 315,
+      "source_commit": "7d57c968053320c215ff039092d2305d6deea330",
+      "changes": [
+        "Reviewed community Docker deployment and opt-in consumer GPU support, with CPU integration regressions; contributor GPU measurements remain separate from audited release results."
+      ]
+    },
+    {
       "path": ".gitattributes",
       "source_sha256": "f478996e3a8144cbe0a13c29ab07557ef889323f997ecbb727830416bd191ea0",
       "sha256": "f478996e3a8144cbe0a13c29ab07557ef889323f997ecbb727830416bd191ea0",
@@ -23,6 +33,16 @@
       ]
     },
     {
+      "path": "Dockerfile",
+      "sha256": "18af4cb3187888b44ed14bf2cb2bca5387f72279943a37fb7133b844787fa120",
+      "source_sha256": "18af4cb3187888b44ed14bf2cb2bca5387f72279943a37fb7133b844787fa120",
+      "bytes": 5051,
+      "source_commit": "7d57c968053320c215ff039092d2305d6deea330",
+      "changes": [
+        "Reviewed community Docker deployment and opt-in consumer GPU support, with CPU integration regressions; contributor GPU measurements remain separate from audited release results."
+      ]
+    },
+    {
       "path": "LICENSE",
       "source_sha256": "ef2f6f6db605a2f611bc2d037c59276f615cdea76ac6e7551a28f71db890c9d2",
       "sha256": "ef2f6f6db605a2f611bc2d037c59276f615cdea76ac6e7551a28f71db890c9d2",
@@ -30,13 +50,14 @@
     },
     {
       "path": "README.md",
-      "source_sha256": "2ce63697dcf12a4811593e31d015fa86d5ae81ff5f012cfd64a4e6ee3427c1fb",
-      "sha256": "2ce63697dcf12a4811593e31d015fa86d5ae81ff5f012cfd64a4e6ee3427c1fb",
-      "bytes": 24079,
+      "source_sha256": "411ca8864d62d422295367af83b72cea1474dac9d12ecebeda812130ce95fdeb",
+      "sha256": "411ca8864d62d422295367af83b72cea1474dac9d12ecebeda812130ce95fdeb",
+      "bytes": 25246,
       "changes": [
-        "English website and workbench presentation. Original evidence, model identities and scientific scores preserved."
+        "English website and workbench presentation. Original evidence, model identities and scientific scores preserved.",
+        "Reviewed community Docker deployment and opt-in consumer GPU support, with CPU integration regressions; contributor GPU measurements remain separate from audited release results."
       ],
-      "source_commit": "cbaa163a295b769aa0ab84fe6369ca733318d13a"
+      "source_commit": "7d57c968053320c215ff039092d2305d6deea330"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -93,6 +114,46 @@
       "source_sha256": "ecaea3069b310712e91c412ed9e8d74381e3ea0a71951eec9fa531b023062171",
       "changes": [
         "No-code text/CSV classification workbench; no new benchmark results."
+      ]
+    },
+    {
+      "path": "docker-compose.yml",
+      "sha256": "1f1c23b98b227005faa518e68938cfbe0ae884f1a9db736895a92eab5a6095a6",
+      "source_sha256": "1f1c23b98b227005faa518e68938cfbe0ae884f1a9db736895a92eab5a6095a6",
+      "bytes": 2792,
+      "source_commit": "7d57c968053320c215ff039092d2305d6deea330",
+      "changes": [
+        "Reviewed community Docker deployment and opt-in consumer GPU support, with CPU integration regressions; contributor GPU measurements remain separate from audited release results."
+      ]
+    },
+    {
+      "path": "docker/README.md",
+      "sha256": "ef7533ece17ad05b0af7b2d7052d794656f3470ec92db86d0fd5fc4e333a6569",
+      "source_sha256": "ef7533ece17ad05b0af7b2d7052d794656f3470ec92db86d0fd5fc4e333a6569",
+      "bytes": 6722,
+      "source_commit": "7d57c968053320c215ff039092d2305d6deea330",
+      "changes": [
+        "Reviewed community Docker deployment and opt-in consumer GPU support, with CPU integration regressions; contributor GPU measurements remain separate from audited release results."
+      ]
+    },
+    {
+      "path": "docker/entrypoint.sh",
+      "sha256": "e7c9d0d72ad9bf18d5c632ae57a16eeeaaf3b857ae7919cc343baa4ba4e16513",
+      "source_sha256": "e7c9d0d72ad9bf18d5c632ae57a16eeeaaf3b857ae7919cc343baa4ba4e16513",
+      "bytes": 1956,
+      "source_commit": "7d57c968053320c215ff039092d2305d6deea330",
+      "changes": [
+        "Reviewed community Docker deployment and opt-in consumer GPU support, with CPU integration regressions; contributor GPU measurements remain separate from audited release results."
+      ]
+    },
+    {
+      "path": "docker/fetch_models.py",
+      "sha256": "0ddd64cfc415b5bca84de40f4e7c9b795d63089edbb8f7aeaa1e99c9d509dd04",
+      "source_sha256": "0ddd64cfc415b5bca84de40f4e7c9b795d63089edbb8f7aeaa1e99c9d509dd04",
+      "bytes": 4622,
+      "source_commit": "7d57c968053320c215ff039092d2305d6deea330",
+      "changes": [
+        "Reviewed community Docker deployment and opt-in consumer GPU support, with CPU integration regressions; contributor GPU measurements remain separate from audited release results."
       ]
     },
     {
@@ -206,6 +267,16 @@
       "source_sha256": "f582a794a047508a99e957181fa4888b3ecf7abe7aeba7a5f0bf25df3ee0188c",
       "sha256": "f582a794a047508a99e957181fa4888b3ecf7abe7aeba7a5f0bf25df3ee0188c",
       "bytes": 7531
+    },
+    {
+      "path": "docs/consumer-gpu.md",
+      "sha256": "3797bbfc806a8d87aa236fff71574dad6195a0071cc47e2fe1a89752aa30591d",
+      "source_sha256": "3797bbfc806a8d87aa236fff71574dad6195a0071cc47e2fe1a89752aa30591d",
+      "bytes": 12910,
+      "source_commit": "7d57c968053320c215ff039092d2305d6deea330",
+      "changes": [
+        "Reviewed community Docker deployment and opt-in consumer GPU support, with CPU integration regressions; contributor GPU measurements remain separate from audited release results."
+      ]
     },
     {
       "path": "docs/contact-amount-service-followup.md",
@@ -1182,9 +1253,13 @@
     },
     {
       "path": "jev/model.py",
-      "source_sha256": "500cedc059878de5070e8589aabe12d13d2df1065b703ab803f8b0928f64d7cc",
-      "sha256": "500cedc059878de5070e8589aabe12d13d2df1065b703ab803f8b0928f64d7cc",
-      "bytes": 5786
+      "source_sha256": "32358106d4d7cc4a71ccbf90dcc3d20664691d3707790faff76889813716d06e",
+      "sha256": "32358106d4d7cc4a71ccbf90dcc3d20664691d3707790faff76889813716d06e",
+      "bytes": 16037,
+      "source_commit": "7d57c968053320c215ff039092d2305d6deea330",
+      "changes": [
+        "Reviewed community Docker deployment and opt-in consumer GPU support, with CPU integration regressions; contributor GPU measurements remain separate from audited release results."
+      ]
     },
     {
       "path": "jev/painting.py",
@@ -1200,9 +1275,13 @@
     },
     {
       "path": "jev/prefix_cache.py",
-      "source_sha256": "9edad06a54414c342b222ea5bf01a2a69caec6362c2f1107da93a99110821b19",
-      "sha256": "9edad06a54414c342b222ea5bf01a2a69caec6362c2f1107da93a99110821b19",
-      "bytes": 9479
+      "source_sha256": "0d81aad6e1d4c3228d9aa7bb09d01f94953656ced34ac4537743e5e1b9b39443",
+      "sha256": "0d81aad6e1d4c3228d9aa7bb09d01f94953656ced34ac4537743e5e1b9b39443",
+      "bytes": 16058,
+      "source_commit": "7d57c968053320c215ff039092d2305d6deea330",
+      "changes": [
+        "Reviewed community Docker deployment and opt-in consumer GPU support, with CPU integration regressions; contributor GPU measurements remain separate from audited release results."
+      ]
     },
     {
       "path": "jev/public_data.py",
@@ -1300,6 +1379,16 @@
       "source_sha256": "7f3d7ead5700ebaa49e2777bbd27e8c02db3a96a58912c8ea7ead04f13c47d5d",
       "sha256": "7f3d7ead5700ebaa49e2777bbd27e8c02db3a96a58912c8ea7ead04f13c47d5d",
       "bytes": 640
+    },
+    {
+      "path": "release/community-pr-integration-20260923.json",
+      "sha256": "f27a379593c1e33d7e8f913a7516705f8d3e9e4ca9a5be3d44a7912a42281ddb",
+      "source_sha256": "f27a379593c1e33d7e8f913a7516705f8d3e9e4ca9a5be3d44a7912a42281ddb",
+      "bytes": 5029,
+      "source_commit": "7d57c968053320c215ff039092d2305d6deea330",
+      "changes": [
+        "Reviewed community Docker deployment and opt-in consumer GPU support, with CPU integration regressions; contributor GPU measurements remain separate from audited release results."
+      ]
     },
     {
       "path": "release/english-ui-20260923.json",
@@ -7655,10 +7744,13 @@
     },
     {
       "path": "scripts/jevbench_openjev.py",
-      "sha256": "cf1d6c77f538036d0c9cd230d3bb9150203a9309239e6e25cd05ac8f1cc43dd9",
-      "bytes": 22062,
-      "source_commit": "43a29babd7e6aa25bef17e690a45325bed6b4ec1",
-      "source_sha256": "cf1d6c77f538036d0c9cd230d3bb9150203a9309239e6e25cd05ac8f1cc43dd9"
+      "sha256": "0cee32ab86236cd92e67a7a45ee85f4c108426a88a69d18bbf8ba1e605c3c9a9",
+      "bytes": 22860,
+      "source_commit": "7d57c968053320c215ff039092d2305d6deea330",
+      "source_sha256": "0cee32ab86236cd92e67a7a45ee85f4c108426a88a69d18bbf8ba1e605c3c9a9",
+      "changes": [
+        "Reviewed community Docker deployment and opt-in consumer GPU support, with CPU integration regressions; contributor GPU measurements remain separate from audited release results."
+      ]
     },
     {
       "path": "scripts/launch_expansion.py",
@@ -8781,6 +8873,16 @@
       "bytes": 13071
     },
     {
+      "path": "tests/test_consumer_gpu_loading.py",
+      "sha256": "c82f351e7bd4abfa27becb1285c5fb8d16eb1a58e2207553c6cc28cce772a7a2",
+      "source_sha256": "c82f351e7bd4abfa27becb1285c5fb8d16eb1a58e2207553c6cc28cce772a7a2",
+      "bytes": 7559,
+      "source_commit": "7d57c968053320c215ff039092d2305d6deea330",
+      "changes": [
+        "Reviewed community Docker deployment and opt-in consumer GPU support, with CPU integration regressions; contributor GPU measurements remain separate from audited release results."
+      ]
+    },
+    {
       "path": "tests/test_contact_service.py",
       "source_sha256": "3606f0727c3983f833d0ddecf9a6d7218f589d99db0682d2502501e20e4e89eb",
       "sha256": "3606f0727c3983f833d0ddecf9a6d7218f589d99db0682d2502501e20e4e89eb",
@@ -8807,6 +8909,16 @@
       "source_sha256": "a19da2862e6e65b99f1b1035ef5ffdb989b2ce5d4f2fc1a43817a797c6e58511",
       "sha256": "a19da2862e6e65b99f1b1035ef5ffdb989b2ce5d4f2fc1a43817a797c6e58511",
       "bytes": 18112
+    },
+    {
+      "path": "tests/test_docker_deployment.py",
+      "sha256": "b89ac84490c452a02ff38fb9158131369e605f869a017193914ed4cb1315bd7b",
+      "source_sha256": "b89ac84490c452a02ff38fb9158131369e605f869a017193914ed4cb1315bd7b",
+      "bytes": 5486,
+      "source_commit": "7d57c968053320c215ff039092d2305d6deea330",
+      "changes": [
+        "Reviewed community Docker deployment and opt-in consumer GPU support, with CPU integration regressions; contributor GPU measurements remain separate from audited release results."
+      ]
     },
     {
       "path": "tests/test_doom_control.py",
@@ -9010,6 +9122,16 @@
       "source_sha256": "0eda14426b917b89d04fc5f3afcca6a7070d5faad0c17e0ab5d95fb1d20deb65",
       "sha256": "0eda14426b917b89d04fc5f3afcca6a7070d5faad0c17e0ab5d95fb1d20deb65",
       "bytes": 24699
+    },
+    {
+      "path": "tests/test_prefix_cache_ragged.py",
+      "sha256": "b21962f8083008960c64f7a5f0324fca0beaae0aa53c3af01a243a6463980819",
+      "source_sha256": "b21962f8083008960c64f7a5f0324fca0beaae0aa53c3af01a243a6463980819",
+      "bytes": 3807,
+      "source_commit": "7d57c968053320c215ff039092d2305d6deea330",
+      "changes": [
+        "Reviewed community Docker deployment and opt-in consumer GPU support, with CPU integration regressions; contributor GPU measurements remain separate from audited release results."
+      ]
     },
     {
       "path": "tests/test_provider_quality.py",
@@ -9649,7 +9771,7 @@
   "archived_remote_context_links_verified": 15,
   "scientific_metrics_modified": false,
   "social_posts_published_by_this_release": false,
-  "current_source_commit": "d12023030d1b89f6add0aa6abcf2c00b468db684",
+  "current_source_commit": "7d57c968053320c215ff039092d2305d6deea330",
   "followup_releases": [
     {
       "id": "community-and-provider-comparison-20260920",
@@ -10548,6 +10670,63 @@
       "existing_numeric_results_modified": false,
       "raw_training_data_included": false,
       "private_operational_files_included": false
+    },
+    {
+      "id": "community-pr-integration-20260923",
+      "created_at": "2026-09-23T08:44:19.667418+00:00",
+      "source_commit": "7d57c968053320c215ff039092d2305d6deea330",
+      "source_code_commit": "869a84d2c670ce1a55f12e87c25a992152243571",
+      "integration_history_commit": "55b148d1755aecde3b97dc199a02773d0d2fa660",
+      "paths": [
+        ".dockerignore",
+        "Dockerfile",
+        "README.md",
+        "docker-compose.yml",
+        "docker/README.md",
+        "docker/entrypoint.sh",
+        "docker/fetch_models.py",
+        "docs/consumer-gpu.md",
+        "jev/model.py",
+        "jev/prefix_cache.py",
+        "scripts/jevbench_openjev.py",
+        "tests/test_consumer_gpu_loading.py",
+        "tests/test_docker_deployment.py",
+        "tests/test_prefix_cache_ragged.py",
+        "release/community-pr-integration-20260923.json"
+      ],
+      "description": "Reviewed community Docker deployment and opt-in consumer GPU support, with CPU integration regressions; contributor GPU measurements remain separate from audited release results.",
+      "pull_requests": [
+        {
+          "number": 1,
+          "url": "https://github.com/Zefan-Cai/Open-Jev/pull/1",
+          "head": "51cb273d682378500b7a2f11a6c7b3e07b05c409"
+        },
+        {
+          "number": 2,
+          "url": "https://github.com/Zefan-Cai/Open-Jev/pull/2",
+          "head": "22ab534c426dbe65ee841bc1e1340bec541ff7b8"
+        }
+      ],
+      "contributor_history_preserved": true,
+      "verification": {
+        "test_command": "python -m unittest tests.test_prefix_cache tests.test_serving tests.test_jevbench_openjev tests.test_prefix_cache_ragged tests.test_consumer_gpu_loading tests.test_docker_deployment",
+        "test_count": 48,
+        "test_failures": 0,
+        "test_skips": 0,
+        "test_runtime_seconds": 9.416,
+        "runtime": {
+          "torch": "2.14.0",
+          "transformers": "5.10.2",
+          "peft": "0.19.1"
+        },
+        "live_gpu_tests": false,
+        "docker_build_performed": false,
+        "original_contributor_measurements_reaudited": false
+      },
+      "existing_numeric_results_modified": false,
+      "raw_training_data_included": false,
+      "private_operational_files_included": false,
+      "social_posts_published": false
     }
   ]
 }
