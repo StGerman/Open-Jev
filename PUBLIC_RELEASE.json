@@ -10726,7 +10726,11 @@
       "existing_numeric_results_modified": false,
       "raw_training_data_included": false,
       "private_operational_files_included": false,
-      "social_posts_published": false
+      "social_posts_published": false,
+      "updated_pull_request_heads": {
+        "1": "d047c0bd916d2764314e7538f9101992eaf1f04b"
+      },
+      "updated_head_review": "PR #1 merged the existing public base into its contributor branch after the initial review. The Docker implementation is unchanged; the maintainer README conflict resolution is retained byte-for-byte."
     }
   ]
 }
