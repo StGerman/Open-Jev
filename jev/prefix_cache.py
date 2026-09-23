@@ -10,9 +10,6 @@ import time
 from collections import defaultdict
 import copy
 
-import json
-from pathlib import Path
-
 import torch
 from transformers.cache_utils import DynamicCache, DynamicLayer, LinearAttentionLayer
 
@@ -140,12 +137,7 @@ def score_cached(model, records, *, batch_size=32):
     # inputs_embeds, so embed_tokens is never executed and nothing streams.
     _cpu_embed = None
     if str(getattr(model, "device_name", "")) == "meta":
-        from safetensors import safe_open
-        _root = Path(model.model_id)
-        _wm = json.loads((_root / "model.safetensors.index.json").read_text())["weight_map"]
-        _key = next(k for k in _wm if k.endswith("embed_tokens.weight"))
-        with safe_open(str(_root / _wm[_key]), framework="pt") as _fh:
-            _cpu_embed = _fh.get_tensor(_key)
+        _cpu_embed = model._cpu_embedding_weight()
 
     def forward(tokens, cache, position):
         # accept RAGGED suffixes. The original
@@ -290,7 +282,8 @@ def score_cached(model, records, *, batch_size=32):
             _t = time.perf_counter()
             hidden = result.last_hidden_state
             rows = torch.arange(len(selected), device=hidden.device)
-            values = model.head(hidden[rows, lengths.to(hidden.device) - 1].float()).squeeze(-1)
+            values = model.head(hidden[rows, lengths.to(hidden.device) - 1].float()
+                                .to(model.head.weight.device)).squeeze(-1)
             _mark("head", _t)
             for index, value in zip(selected, values.unbind()):
                 scores[index] = value
@@ -309,4 +302,3 @@ def score_cached(model, records, *, batch_size=32):
     stats["reused_input_tokens"] = stats["logical_input_tokens"] - stats["processed_input_tokens"]
     model.last_input_tokens = stats["logical_input_tokens"]
     return logits, stats
-

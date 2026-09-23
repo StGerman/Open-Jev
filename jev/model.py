@@ -8,8 +8,27 @@ import os
 import torch
 from torch import nn
 from transformers import AutoModelForImageTextToText, AutoTokenizer
+from transformers.utils.hub import cached_file
 
 from .api import candidate_prompts
+
+
+def _checkpoint_tensor_file(model_id, revision, tensor_key):
+    """Resolve a pinned safetensors shard from a Hub repo ID or local snapshot."""
+    index_path = cached_file(model_id, "model.safetensors.index.json", revision=revision,
+                             _raise_exceptions_for_missing_entries=False)
+    if index_path is None:
+        filename = "model.safetensors"
+    else:
+        weight_map = json.loads(Path(index_path).read_text())["weight_map"]
+        if tensor_key not in weight_map:
+            raise ValueError(f"Checkpoint has no tensor {tensor_key}")
+        filename = weight_map[tensor_key]
+    return cached_file(model_id, filename, revision=revision)
+
+
+def _module_under(name, parent):
+    return name == parent or name.startswith(parent + ".")
 
 
 class DecisionModel(nn.Module):
@@ -53,15 +72,9 @@ class DecisionModel(nn.Module):
             # after init — lm_head is read once for the Yes/No rows — so parking
             # them on CPU costs nothing and changes no output. Loading them onto
             # the GPU is the ONLY reason the full 17.98 GiB ever had to fit.
-            _explicit_cpu = ()
             if _dm.lstrip().startswith("{"):
                 _parsed = json.loads(_dm)
                 _kw["device_map"] = _parsed
-                # Modules the operator NAMED for cpu/disk. The overflow guard
-                # below ignores these: it exists to catch device_map="auto"
-                # silently spilling weights, not a placement written by hand.
-                _explicit_cpu = tuple(k for k, v in _parsed.items()
-                                      if str(v) in ("cpu", "disk"))
             else:
                 _kw["device_map"] = _dm
             _mm = os.environ.get("JEV_MAX_MEMORY")
@@ -90,12 +103,11 @@ class DecisionModel(nn.Module):
             # the head is seeded from, straight out of the checkpoint shard —
             # identical bytes, no 1.89 GiB materialisation, no output change.
             from safetensors import safe_open
-            _root = Path(model_id)
-            _wm = json.loads((_root / "model.safetensors.index.json").read_text())["weight_map"]
-            with safe_open(str(_root / _wm["lm_head.weight"]), framework="pt") as _fh:
+            _path = _checkpoint_tensor_file(model_id, revision, "lm_head.weight")
+            with safe_open(_path, framework="pt") as _fh:
                 _rows = _fh.get_slice("lm_head.weight")
-                initial = (_rows[yes[0]:yes[0] + 1][0].float() -
-                           _rows[no[0]:no[0] + 1][0].float()).detach().clone()
+                initial = (_rows[yes[0]:yes[0] + 1][0] -
+                           _rows[no[0]:no[0] + 1][0]).detach().float().clone()
         else:
             initial = (_ow[yes[0]] - _ow[no[0]]).detach().float().clone()
         self.backbone = full.model.language_model
@@ -137,9 +149,12 @@ class DecisionModel(nn.Module):
             # bf16 on one card) and cannot leave a meta tensor in the forward
             # path. Anything under the backbone on cpu/disk/meta is still fatal
             # and still refuses, which is the case the guard was written for.
-            _discarded = ("model.visual", "visual", "mtp", "lm_head") + tuple(_explicit_cpu)
-            _resident = _c.Counter(str(v) for k, v in self.hf_device_map.items()
-                                   if not k.startswith(_discarded))
+            _discarded = ("model.visual", "visual", "mtp", "lm_head")
+            _embedding = "model.language_model.embed_tokens"
+            _resident = _c.Counter(
+                str(value) for name, value in self.hf_device_map.items()
+                if not any(_module_under(name, parent) for parent in _discarded)
+                and not (_module_under(name, _embedding) and str(value) == "cpu"))
             _bad = {d for d in _resident if d in ("cpu", "disk", "meta")}
             if (_bad or str(_out) == "meta") and os.environ.get("JEV_ALLOW_OFFLOAD") != "1":
                 raise RuntimeError(
@@ -169,6 +184,30 @@ class DecisionModel(nn.Module):
             self.backbone.gradient_checkpointing_enable(gradient_checkpointing_kwargs={"use_reentrant": False})
             self.backbone.enable_input_require_grads()
         self.lora_rank = lora_rank
+        if str(self.device_name) == "meta":
+            self._cpu_embedding_weight()
+        self._validate_loaded_parameters()
+
+    def _cpu_embedding_weight(self):
+        """Keep the supported CPU embedding fallback across cached requests."""
+        if getattr(self, "_cpu_embed", None) is None:
+            from safetensors import safe_open
+            key = "model.language_model.embed_tokens.weight"
+            path = _checkpoint_tensor_file(self.model_id, self.revision, key)
+            with safe_open(path, framework="pt") as checkpoint:
+                self._cpu_embed = checkpoint.get_tensor(key)
+        return self._cpu_embed
+
+    def _validate_loaded_parameters(self):
+        # A CPU embedding is the only supported meta parameter: its actual
+        # weights have been loaded above and both scoring paths bypass it.
+        allowed = set()
+        if str(self.device_name) == "meta" and getattr(self, "_cpu_embed", None) is not None:
+            allowed = {id(value) for value in self.backbone.get_input_embeddings().parameters()}
+        missing = [name for name, value in self.named_parameters()
+                   if value.device.type == "meta" and id(value) not in allowed]
+        if missing:
+            raise RuntimeError("refusing to serve unloaded meta parameters: " + ", ".join(missing))
 
     def forward(self, records):
         prompts, counts = [], []
@@ -191,16 +230,10 @@ class DecisionModel(nn.Module):
             # rows up on CPU and pass inputs_embeds instead. Same values -- an
             # embedding is a gather -- so no output changes. Mirrors the cached
             # path in prefix_cache.py.
-            if getattr(self, "_cpu_embed", None) is None:
-                from safetensors import safe_open
-                _root = Path(self.model_id)
-                _wm = json.loads((_root / "model.safetensors.index.json").read_text())["weight_map"]
-                _key = next(k for k in _wm if k.endswith("embed_tokens.weight"))
-                with safe_open(str(_root / _wm[_key]), framework="pt") as _fh:
-                    self._cpu_embed = _fh.get_tensor(_key)
+            _cpu_embed = self._cpu_embedding_weight()
             _core = self.backbone.get_base_model() if hasattr(self.backbone, "get_base_model") else self.backbone
             _dev = next(_core.layers[0].parameters()).device
-            _embeds = torch.nn.functional.embedding(encoded["input_ids"], self._cpu_embed).to(_dev)
+            _embeds = torch.nn.functional.embedding(encoded["input_ids"], _cpu_embed).to(_dev)
             outputs = self.backbone(inputs_embeds=_embeds, attention_mask=encoded["attention_mask"].to(_dev),
                                     use_cache=False, return_dict=True)
         else:
@@ -250,4 +283,5 @@ class DecisionModel(nn.Module):
             model.backbone = PeftModel.from_pretrained(model.backbone, output / "adapter")
             model.lora_rank = config["lora_rank"]
         model.head.load_state_dict(torch.load(output / "head.pt", map_location=device, weights_only=True))
+        model._validate_loaded_parameters()
         return model.eval()

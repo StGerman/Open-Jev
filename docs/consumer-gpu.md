@@ -1,10 +1,12 @@
 # Open-Jev on consumer GPUs
 
+Contributor report by [Turkidev](https://github.com/Turkidev) in [PR #2](https://github.com/Zefan-Cai/Open-Jev/pull/2). The hardware measurements below are author-reported; the PR does not include raw per-request measurement records. They do not replace the project's independently audited release results. Hardware, kernels, caching and warmup protocols differ across rows, so the table does not establish a matched-hardware speedup. CPU fixture tests validate loading guards and cache mechanics, not these GPU measurements.
+
 I wanted Open-Jev 9B answering questions about Saudi court judgments on hardware I already own: a Windows desktop with an RTX 4060 Ti 16 GB and an RTX 5060 Ti 16 GB, and a Linux box with one RTX 5060 Ti 16 GB. The released setup assumes a single large GPU. Qwen3.5-9B is 17.98 GiB in bf16, so on my first attempt I loaded it in 8-bit and split it across both desktop cards. One request took 83 seconds.
 
 It now runs in bf16 on one 16 GB card, returns the same JevBench score as the published numbers, and a full request on my workload takes 4.4 seconds. This page covers what was slow, what I changed, and the numbers on each card, including an H100 for comparison.
 
-Everything is on the `perf/consumer-gpu` branch. Every option is opt-in; with none set, the code behaves exactly like upstream and the upstream test suite passes unchanged.
+The changes were contributed in PR #2. Every option is opt-in; with none set, the code behaves exactly like upstream and the upstream test suite passes unchanged.
 
 ## Results on JevBench
 
