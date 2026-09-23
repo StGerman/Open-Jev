@@ -10,6 +10,10 @@ without autoregressive answer generation or parsing generated JSON.
 
 **[Watch the 32-second demo and try the interactive replay →](https://zefan-cai.github.io/open-jev/v1-1/)**
 
+On X: [new 27B v1.1 video](https://x.com/Zefan_Cai/status/2102682845915619333) ·
+[benchmark chart](https://x.com/Zefan_Cai/status/2102682231143911911) ·
+[poster and release links](https://x.com/Zefan_Cai/status/2102683479586861302).
+
 Two confirmation-gate cases. A misleading preview. Seven possible decisions.
 Inspect how Open-Jev-27B-v1.1 ranks them, then compare the saved probabilities
 when the actual target changes. The video replays real model outputs from

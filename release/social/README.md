@@ -1,5 +1,15 @@
 # X launch videos and published posts
 
+## Open-Jev-27B-v1.1
+
+- [New 32-second demo](https://x.com/Zefan_Cai/status/2102682845915619333): two actual 27B v1.1 predictions, with edited playback and all seven choices. No browser actions are executed.
+- [Dedicated poster and release links](https://x.com/Zefan_Cai/status/2102683479586861302): a reply to the video with the model, public data and code.
+- [JevBench chart](https://x.com/Zefan_Cai/status/2102682231143911911): Open-Jev-2B, Open-Jev-9B, Open-Jev-27B-v1.1 and Jev on the public 231-task subset. 27B v1.1 remains three overall and one Hard answer behind Jev.
+
+[Interactive release page](https://zefan-cai.github.io/open-jev/v1-1/) · [Replay source and evidence](../demos/v1.1-confirmation-gate-20260923/README.md) · [Video publication receipt](27b-demo-20260923/publication.json) · [Chart publication receipt](27b-chart-20260923/publication.json).
+
+## Earlier launch
+
 Published: [demo quote-post](https://x.com/Zefan_Cai/status/2101782158658695388) · [introduction reply with website and collection](https://x.com/Zefan_Cai/status/2101786019607740436). The main post has the 110-second demo reel; its self-reply has the 52-second introduction. A [separate website reply](https://x.com/Zefan_Cai/status/2101789698947793231) makes the project site easy to find.
 
 ## Project introduction

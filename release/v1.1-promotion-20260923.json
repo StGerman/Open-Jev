@@ -1,5 +1,5 @@
 {
-  "status": "verified_promotion_assets_ready",
+  "status": "published_verified",
   "model": "Open-Jev-27B-v1.1",
   "page": "https://zefan-cai.github.io/open-jev/v1-1/",
   "scope": "Two actual recorded predictions; edited playback of synthetic text-state cases. No new inference or browser actions.",
@@ -40,7 +40,15 @@
     "Short recorded case",
     "Direct build invitation"
   ],
-  "twitter_publication": "Pending; this receipt does not assert publication.",
+  "twitter_publication": {
+    "chart": "https://x.com/Zefan_Cai/status/2102682231143911911",
+    "demo": "https://x.com/Zefan_Cai/status/2102682845915619333",
+    "poster_reply": "https://x.com/Zefan_Cai/status/2102683479586861302",
+    "receipts": [
+      "release/social/27b-chart-20260923/publication.json",
+      "release/social/27b-demo-20260923/publication.json"
+    ]
+  },
   "changed_paths": [
     "site/index.html",
     "site/app.js",
@@ -79,5 +87,6 @@
     "release/demos/v1.1-confirmation-gate-20260923/verify.py",
     "README.md",
     "scripts/export_site.py"
-  ]
+  ],
+  "online_receipt": "release/v1.1-promotion-online-20260923.json"
 }
