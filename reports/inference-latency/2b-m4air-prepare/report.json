@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-09-24T09:49:23.661099+00:00",
+  "checkpoint": "/Users/sgerman/models/open-jev/Open-Jev-2B/package/checkpoint",
+  "checkpoint_model_config": {
+    "model_id": "Qwen/Qwen3.5-2B",
+    "revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+    "max_length": 4096,
+    "lora_rank": 8,
+    "method": "independent_candidate_lora_nll_brier"
+  },
+  "configuration": {
+    "checkpoint": "/Users/sgerman/models/open-jev/Open-Jev-2B/package/checkpoint",
+    "requests": null,
+    "contexts": [
+      128,
+      512
+    ],
+    "candidates": [
+      2,
+      8
+    ],
+    "device": "cuda:0",
+    "batch_size": 32,
+    "warmup": 3,
+    "repetitions": 20,
+    "max_seconds": 900,
+    "max_probability_error": 0.0001,
+    "output": "reports/inference-latency/2b-m4air-prepare",
+    "prepare_only": true
+  },
+  "scope": {
+    "predictor": "Warm model, request compilation + tokenization + synchronized inference + typed formatting and validation; model loading excluded.",
+    "http_loopback": "Same warm model over real loopback HTTP, fresh TCP connection each request; includes JSON encoding, server, synchronized inference, response decoding and validation. No external Internet.",
+    "concurrency": 1,
+    "cache": "request-local only; no cross-request result or prefix reuse",
+    "percentile_method": "linear interpolation at (n-1)*q, successful measured attempts; failures and warmups retained separately",
+    "comparability": "A hosted API includes network, routing and service scheduling; no direct model-only speedup may be inferred from that difference."
+  },
+  "workload_manifest_sha256": "fa0aeeebbb1fc5c9ecab28b3b43ae8becf859aafcca559255a3d74567bb2a641",
+  "status": "prepared_no_model_inference",
+  "source_sha256": {
+    "scripts/benchmark_inference_latency.py": "e8e1293579813e0894f23cc6d4e7ffc1732287c1674fb689d7e3e60e7f572f89",
+    "scripts/benchmark_prefix_cache.py": "b2891642012edd30671989a3dcf6cdd727f7d10fb7b6a6d54462507ce4fa71f0",
+    "jev/model.py": "333bed84cf2801ba33b053891e9ff9563d082f3da87ad6ad1681a2b1bcb4c6aa",
+    "jev/serving.py": "80cd8407b7ee6dee155fb1adcb732cf40c3c7cf8a75af7da7c4fa5e4cb24425d",
+    "jev/server.py": "0632bbdb0092cd4e8ad1dc7ee4aaaa95ae03fbfb60475939c80231f78eb6616a",
+    "jev/prefix_cache.py": "736556ab0249068985366d257f421e3adefa0f9545cc5f4d458215150b9713ba"
+  }
+}

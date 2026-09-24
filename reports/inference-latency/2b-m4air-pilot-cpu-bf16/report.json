@@ -1,0 +1,281 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-09-24T09:52:27.405498+00:00",
+  "checkpoint": "/Users/sgerman/models/open-jev/Open-Jev-2B/package/checkpoint",
+  "checkpoint_model_config": {
+    "model_id": "Qwen/Qwen3.5-2B",
+    "revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+    "max_length": 4096,
+    "lora_rank": 8,
+    "method": "independent_candidate_lora_nll_brier"
+  },
+  "configuration": {
+    "checkpoint": "/Users/sgerman/models/open-jev/Open-Jev-2B/package/checkpoint",
+    "requests": "reports/inference-latency/2b-m4air-prepare/requests.json",
+    "contexts": [
+      128,
+      512,
+      1024
+    ],
+    "candidates": [
+      2,
+      8,
+      32
+    ],
+    "device": "cpu",
+    "batch_size": 32,
+    "warmup": 1,
+    "repetitions": 1,
+    "max_seconds": 3600.0,
+    "max_probability_error": 0.0001,
+    "output": "reports/inference-latency/2b-m4air-pilot-cpu-bf16",
+    "prepare_only": false
+  },
+  "scope": {
+    "predictor": "Warm model, request compilation + tokenization + synchronized inference + typed formatting and validation; model loading excluded.",
+    "http_loopback": "Same warm model over real loopback HTTP, fresh TCP connection each request; includes JSON encoding, server, synchronized inference, response decoding and validation. No external Internet.",
+    "concurrency": 1,
+    "cache": "request-local only; no cross-request result or prefix reuse",
+    "percentile_method": "linear interpolation at (n-1)*q, successful measured attempts; failures and warmups retained separately",
+    "comparability": "A hosted API includes network, routing and service scheduling; no direct model-only speedup may be inferred from that difference."
+  },
+  "workload_manifest_sha256": "fa0aeeebbb1fc5c9ecab28b3b43ae8becf859aafcca559255a3d74567bb2a641",
+  "model_load_seconds": 0.6276026249979623,
+  "provenance": {
+    "checkpoint_sha256": "3076462e6356412082e79af909227b39b2863b90def79155ca0821aa506b7ded",
+    "base_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+    "max_length": 4096,
+    "backbone_parameter_dtypes": [
+      "torch.bfloat16",
+      "torch.float32"
+    ],
+    "code_commit": "58c289484ac4beb469da28d448abccab31be01c2"
+  },
+  "temperature": 1.518796342858676,
+  "runtime": {
+    "python": "3.12.13",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "hostname": "Stass-MacBook-Air.local",
+    "cuda_visible_devices": null,
+    "torch_cuda": null,
+    "gpu": null,
+    "backbone_parameter_dtypes": [
+      "torch.bfloat16",
+      "torch.float32"
+    ],
+    "head_parameter_dtypes": [
+      "torch.float32"
+    ],
+    "attention_implementation": "sdpa",
+    "torch": "2.14.0",
+    "transformers": "5.10.2",
+    "peft": "0.19.1",
+    "cpu": "Apple M4",
+    "torch_num_threads": 4,
+    "pytorch_enable_mps_fallback": null
+  },
+  "gpu_snapshot_before": null,
+  "status": "runtime_error",
+  "summaries": [
+    {
+      "request_id": "drone",
+      "transport": "predictor",
+      "mode": "cached",
+      "attempts": 1,
+      "successes": 1,
+      "errors": 0,
+      "p50_ms": 18715.106292045675,
+      "p95_ms": 18715.106292045675,
+      "min_ms": 18715.106292045675,
+      "max_ms": 18715.106292045675,
+      "mean_ms": 18715.106292045675,
+      "all_attempt_p50_ms": 18715.106292045675,
+      "all_attempt_p95_ms": 18715.106292045675
+    },
+    {
+      "request_id": "drone",
+      "transport": "http_loopback",
+      "mode": "uncached",
+      "attempts": 1,
+      "successes": 1,
+      "errors": 0,
+      "p50_ms": 30576.753208006267,
+      "p95_ms": 30576.753208006267,
+      "min_ms": 30576.753208006267,
+      "max_ms": 30576.753208006267,
+      "mean_ms": 30576.753208006267,
+      "all_attempt_p50_ms": 30576.753208006267,
+      "all_attempt_p95_ms": 30576.753208006267
+    },
+    {
+      "request_id": "drone",
+      "transport": "http_loopback",
+      "mode": "cached",
+      "attempts": 1,
+      "successes": 1,
+      "errors": 0,
+      "p50_ms": 18751.83887494495,
+      "p95_ms": 18751.83887494495,
+      "min_ms": 18751.83887494495,
+      "max_ms": 18751.83887494495,
+      "mean_ms": 18751.83887494495,
+      "all_attempt_p50_ms": 18751.83887494495,
+      "all_attempt_p95_ms": 18751.83887494495
+    },
+    {
+      "request_id": "drone",
+      "transport": "predictor",
+      "mode": "uncached",
+      "attempts": 1,
+      "successes": 1,
+      "errors": 0,
+      "p50_ms": 30906.11591603374,
+      "p95_ms": 30906.11591603374,
+      "min_ms": 30906.11591603374,
+      "max_ms": 30906.11591603374,
+      "mean_ms": 30906.11591603374,
+      "all_attempt_p50_ms": 30906.11591603374,
+      "all_attempt_p95_ms": 30906.11591603374
+    }
+  ],
+  "cache_comparisons": [
+    {
+      "request_id": "drone",
+      "transport": "predictor",
+      "parity_passed": false,
+      "compared_pairs": 1,
+      "max_probability_error": 0.004323786790257855,
+      "uncached_over_cached_p50": null
+    },
+    {
+      "request_id": "drone",
+      "transport": "http_loopback",
+      "parity_passed": false,
+      "compared_pairs": 1,
+      "max_probability_error": 0.004323786790257855,
+      "uncached_over_cached_p50": null
+    },
+    {
+      "request_id": "customer_service",
+      "transport": "predictor",
+      "parity_passed": false,
+      "compared_pairs": 0,
+      "max_probability_error": null,
+      "uncached_over_cached_p50": null
+    },
+    {
+      "request_id": "customer_service",
+      "transport": "http_loopback",
+      "parity_passed": false,
+      "compared_pairs": 0,
+      "max_probability_error": null,
+      "uncached_over_cached_p50": null
+    },
+    {
+      "request_id": "context-128-choice-2",
+      "transport": "predictor",
+      "parity_passed": false,
+      "compared_pairs": 0,
+      "max_probability_error": null,
+      "uncached_over_cached_p50": null
+    },
+    {
+      "request_id": "context-128-choice-2",
+      "transport": "http_loopback",
+      "parity_passed": false,
+      "compared_pairs": 0,
+      "max_probability_error": null,
+      "uncached_over_cached_p50": null
+    },
+    {
+      "request_id": "context-128-choice-8",
+      "transport": "predictor",
+      "parity_passed": false,
+      "compared_pairs": 0,
+      "max_probability_error": null,
+      "uncached_over_cached_p50": null
+    },
+    {
+      "request_id": "context-128-choice-8",
+      "transport": "http_loopback",
+      "parity_passed": false,
+      "compared_pairs": 0,
+      "max_probability_error": null,
+      "uncached_over_cached_p50": null
+    },
+    {
+      "request_id": "context-512-choice-2",
+      "transport": "predictor",
+      "parity_passed": false,
+      "compared_pairs": 0,
+      "max_probability_error": null,
+      "uncached_over_cached_p50": null
+    },
+    {
+      "request_id": "context-512-choice-2",
+      "transport": "http_loopback",
+      "parity_passed": false,
+      "compared_pairs": 0,
+      "max_probability_error": null,
+      "uncached_over_cached_p50": null
+    },
+    {
+      "request_id": "context-512-choice-8",
+      "transport": "predictor",
+      "parity_passed": false,
+      "compared_pairs": 0,
+      "max_probability_error": null,
+      "uncached_over_cached_p50": null
+    },
+    {
+      "request_id": "context-512-choice-8",
+      "transport": "http_loopback",
+      "parity_passed": false,
+      "compared_pairs": 0,
+      "max_probability_error": null,
+      "uncached_over_cached_p50": null
+    }
+  ],
+  "parity": [
+    {
+      "request_id": "drone",
+      "transport": "predictor",
+      "repetition": 0,
+      "passed": false,
+      "question_ids_equal": true,
+      "question_types_equal": true,
+      "candidate_ids_equal": true,
+      "argmax_equal": true,
+      "usage_equal": true,
+      "changed_decisions": [],
+      "max_probability_error": 0.004323786790257855,
+      "max_score_error": 0.004354555892318812
+    },
+    {
+      "request_id": "drone",
+      "transport": "http_loopback",
+      "repetition": 0,
+      "passed": false,
+      "question_ids_equal": true,
+      "question_types_equal": true,
+      "candidate_ids_equal": true,
+      "argmax_equal": true,
+      "usage_equal": true,
+      "changed_decisions": [],
+      "max_probability_error": 0.004323786790257855,
+      "max_score_error": 0.004354555892318812
+    }
+  ],
+  "warmup_attempts": 7,
+  "measured_attempts": 4,
+  "errors_including_warmup": 1,
+  "elapsed_seconds": 529.6221477909712,
+  "source_sha256": {
+    "scripts/benchmark_inference_latency.py": "e8e1293579813e0894f23cc6d4e7ffc1732287c1674fb689d7e3e60e7f572f89",
+    "scripts/benchmark_prefix_cache.py": "b2891642012edd30671989a3dcf6cdd727f7d10fb7b6a6d54462507ce4fa71f0",
+    "jev/model.py": "333bed84cf2801ba33b053891e9ff9563d082f3da87ad6ad1681a2b1bcb4c6aa",
+    "jev/serving.py": "80cd8407b7ee6dee155fb1adcb732cf40c3c7cf8a75af7da7c4fa5e4cb24425d",
+    "jev/server.py": "0632bbdb0092cd4e8ad1dc7ee4aaaa95ae03fbfb60475939c80231f78eb6616a",
+    "jev/prefix_cache.py": "736556ab0249068985366d257f421e3adefa0f9545cc5f4d458215150b9713ba"
+  }
+}

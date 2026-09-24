@@ -1,0 +1,49 @@
+{
+  "device": "mps",
+  "chip": "Apple M4",
+  "torch": "2.14.0",
+  "checkpoint": "/Users/sgerman/models/open-jev/Open-Jev-2B/package/checkpoint",
+  "request": "configs/example-request.json",
+  "backbone_parameter_dtypes": [
+    "torch.bfloat16",
+    "torch.float32"
+  ],
+  "model_load_seconds": 6.491194958041888,
+  "parameters": 442,
+  "parameters_off_mps": [],
+  "mps_allocated_bytes_after_load": 3779985664,
+  "mps_driver_allocated_bytes_after_load": 5478236160,
+  "cpu_fallback_warnings": [],
+  "gpu_device_utilization_pct": {
+    "idle": {
+      "samples": 20,
+      "median": 12.0,
+      "max": 49
+    },
+    "while_scoring": {
+      "samples": 205,
+      "median": 100,
+      "max": 100
+    }
+  },
+  "request_ms": {
+    "repetitions": 30,
+    "median": 966.7162709811237,
+    "max": 1010.0378339993767
+  },
+  "signposts": false,
+  "profile": {
+    "log": "reports/inference-latency/2b-m4air-mps-profile.log",
+    "exit_code": 0,
+    "no_cpu_fallback_logged": true,
+    "cpu_fallback_table_present": false
+  },
+  "checks": {
+    "all_parameters_on_mps": true,
+    "metal_memory_allocated": true,
+    "no_cpu_fallback_warnings": true,
+    "profiler_logged_no_cpu_fallback": true,
+    "gpu_utilization_rose_while_scoring": true
+  },
+  "status": "passed"
+}

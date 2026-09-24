@@ -1,0 +1,95 @@
+== pilot-mps start 2026-09-24T09:49:38Z env=[] extra=[]
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+Now drawing from 'AC Power'
+== pilot-mps end 2026-09-24T09:52:09Z rc=2
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+== pilot-cpu-bf16 start 2026-09-24T09:52:25Z env=[] extra=[]
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+Now drawing from 'AC Power'
+== pilot-cpu-bf16 end 2026-09-24T10:01:18Z rc=2
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+== pilot-cpu-fp32 start 2026-09-24T10:04:01Z env=[JEV_TORCH_DTYPE=float32] extra=[--http-timeout 1800]
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+Now drawing from 'AC Power'
+== pilot-cpu-fp32 end 2026-09-24T10:10:33Z rc=0
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+== cpu-fp32-run1 start 2026-09-24T10:11:09Z env=[JEV_TORCH_DTYPE=float32] extra=[--http-timeout 1800]
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+Now drawing from 'AC Power'
+== cpu-fp32-run1 end 2026-09-24T10:51:32Z rc=0
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+== mps-run1 start 2026-09-24T10:56:32Z env=[] extra=[]
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+Now drawing from 'AC Power'
+== mps-run1 end 2026-09-24T11:29:55Z rc=2
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+== cpu-bf16-run1 start 2026-09-24T11:34:55Z env=[] extra=[--http-timeout 1800]
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+Now drawing from 'AC Power'
+== cpu-bf16-run1 end 2026-09-24T12:37:36Z rc=2
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+== cpu-bf16-run2 start 2026-09-24T12:42:36Z env=[] extra=[--http-timeout 1800]
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+Now drawing from 'AC Power'
+== cpu-bf16-run2 end 2026-09-24T13:44:01Z rc=2
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+== mps-run2 start 2026-09-24T13:49:01Z env=[] extra=[]
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+Now drawing from 'AC Power'
+== mps-run2 end 2026-09-24T14:19:36Z rc=2
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+== cpu-fp32-run2 start 2026-09-24T14:24:36Z env=[JEV_TORCH_DTYPE=float32] extra=[--http-timeout 1800]
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+Now drawing from 'AC Power'
+== cpu-fp32-run2 end 2026-09-24T15:06:42Z rc=0
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+== mps-cool-check start 2026-09-24T15:17:53Z env=[] extra=[]
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+Now drawing from 'AC Power'
+== mps-cool-check end 2026-09-24T15:22:13Z rc=2
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+== tune-base1 start 2026-09-24T15:22:36Z env=[] extra=[]
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+Now drawing from 'AC Power'
