@@ -1,0 +1,79 @@
+{
+  "left": "reports/inference-latency/2b-m4air-tune-base3",
+  "right": "reports/inference-latency/2b-m4air-tune-noqprefill",
+  "mode": "cached",
+  "probability_tolerance": 0.0001,
+  "requests": 6,
+  "all_decisions_equal": true,
+  "all_within_tolerance": false,
+  "max_probability_error": 0.00320211460643538,
+  "changed_decisions": {},
+  "per_request": {
+    "context-128-choice-2": {
+      "passed": true,
+      "question_ids_equal": true,
+      "question_types_equal": true,
+      "candidate_ids_equal": true,
+      "argmax_equal": true,
+      "usage_equal": true,
+      "changed_decisions": [],
+      "max_probability_error": 0.0,
+      "max_score_error": 0.0
+    },
+    "context-128-choice-8": {
+      "passed": true,
+      "question_ids_equal": true,
+      "question_types_equal": true,
+      "candidate_ids_equal": true,
+      "argmax_equal": true,
+      "usage_equal": true,
+      "changed_decisions": [],
+      "max_probability_error": 0.0,
+      "max_score_error": 0.0
+    },
+    "context-512-choice-2": {
+      "passed": true,
+      "question_ids_equal": true,
+      "question_types_equal": true,
+      "candidate_ids_equal": true,
+      "argmax_equal": true,
+      "usage_equal": true,
+      "changed_decisions": [],
+      "max_probability_error": 0.0,
+      "max_score_error": 0.0
+    },
+    "context-512-choice-8": {
+      "passed": true,
+      "question_ids_equal": true,
+      "question_types_equal": true,
+      "candidate_ids_equal": true,
+      "argmax_equal": true,
+      "usage_equal": true,
+      "changed_decisions": [],
+      "max_probability_error": 0.0,
+      "max_score_error": 0.0
+    },
+    "customer_service": {
+      "passed": true,
+      "question_ids_equal": true,
+      "question_types_equal": true,
+      "candidate_ids_equal": true,
+      "argmax_equal": true,
+      "usage_equal": true,
+      "changed_decisions": [],
+      "max_probability_error": 0.0,
+      "max_score_error": 0.0
+    },
+    "drone": {
+      "passed": false,
+      "question_ids_equal": true,
+      "question_types_equal": true,
+      "candidate_ids_equal": true,
+      "argmax_equal": true,
+      "usage_equal": true,
+      "changed_decisions": [],
+      "max_probability_error": 0.00320211460643538,
+      "max_score_error": 0.004477691610817347
+    }
+  }
+}

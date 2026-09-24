@@ -1,0 +1,79 @@
+{
+  "left": "reports/inference-latency/2b-m4air-cpu-fp32-run1",
+  "right": "reports/inference-latency/2b-m4air-tune-fp16",
+  "mode": "uncached",
+  "probability_tolerance": 0.0001,
+  "requests": 6,
+  "all_decisions_equal": true,
+  "all_within_tolerance": false,
+  "max_probability_error": 0.0009748112500933548,
+  "changed_decisions": {},
+  "per_request": {
+    "context-128-choice-2": {
+      "passed": true,
+      "question_ids_equal": true,
+      "question_types_equal": true,
+      "candidate_ids_equal": true,
+      "argmax_equal": true,
+      "usage_equal": true,
+      "changed_decisions": [],
+      "max_probability_error": 1.0464582747338191e-05,
+      "max_score_error": 0.0
+    },
+    "context-128-choice-8": {
+      "passed": true,
+      "question_ids_equal": true,
+      "question_types_equal": true,
+      "candidate_ids_equal": true,
+      "argmax_equal": true,
+      "usage_equal": true,
+      "changed_decisions": [],
+      "max_probability_error": 1.763958374101371e-05,
+      "max_score_error": 0.0
+    },
+    "context-512-choice-2": {
+      "passed": true,
+      "question_ids_equal": true,
+      "question_types_equal": true,
+      "candidate_ids_equal": true,
+      "argmax_equal": true,
+      "usage_equal": true,
+      "changed_decisions": [],
+      "max_probability_error": 5.003287417038038e-06,
+      "max_score_error": 0.0
+    },
+    "context-512-choice-8": {
+      "passed": true,
+      "question_ids_equal": true,
+      "question_types_equal": true,
+      "candidate_ids_equal": true,
+      "argmax_equal": true,
+      "usage_equal": true,
+      "changed_decisions": [],
+      "max_probability_error": 4.930278468277295e-06,
+      "max_score_error": 0.0
+    },
+    "customer_service": {
+      "passed": false,
+      "question_ids_equal": true,
+      "question_types_equal": true,
+      "candidate_ids_equal": true,
+      "argmax_equal": true,
+      "usage_equal": true,
+      "changed_decisions": [],
+      "max_probability_error": 0.00014859195008098958,
+      "max_score_error": 0.0
+    },
+    "drone": {
+      "passed": false,
+      "question_ids_equal": true,
+      "question_types_equal": true,
+      "candidate_ids_equal": true,
+      "argmax_equal": true,
+      "usage_equal": true,
+      "changed_decisions": [],
+      "max_probability_error": 0.0009748112500933548,
+      "max_score_error": 0.0004609079996036325
+    }
+  }
+}

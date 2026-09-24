@@ -93,3 +93,111 @@ Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
 Now drawing from 'AC Power'
+== tune-base1 start 2026-09-24T16:38:23Z env=[] extra=[]
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+Now drawing from 'AC Power'
+== tune-base1 end 2026-09-24T16:50:51Z rc=2
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+== tune-ragged start 2026-09-24T16:50:51Z env=[JEV_RAGGED_SUFFIX=1] extra=[]
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+Now drawing from 'AC Power'
+== tune-ragged end 2026-09-24T17:04:58Z rc=2
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+== tune-chunk128 start 2026-09-24T17:04:58Z env=[JEV_PREFILL_CHUNK=128] extra=[]
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+Now drawing from 'AC Power'
+== tune-chunk128 end 2026-09-24T17:19:47Z rc=2
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+== tune-base2 start 2026-09-24T17:19:47Z env=[] extra=[]
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+Now drawing from 'AC Power'
+== tune-base2 end 2026-09-24T17:34:13Z rc=2
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+== tune-chunk256 start 2026-09-24T17:34:13Z env=[JEV_PREFILL_CHUNK=256] extra=[]
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+Now drawing from 'AC Power'
+== tune-chunk256 end 2026-09-24T17:49:01Z rc=2
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+== tune-noqprefill start 2026-09-24T17:49:01Z env=[JEV_NO_QPREFILL=1] extra=[]
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+Now drawing from 'AC Power'
+== tune-noqprefill end 2026-09-24T18:03:58Z rc=2
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+== tune-base3 start 2026-09-24T18:03:58Z env=[] extra=[]
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+Now drawing from 'AC Power'
+== tune-base3 end 2026-09-24T18:18:32Z rc=2
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+== tune-bs8 start 2026-09-24T18:18:32Z env=[] extra=[--batch-size 8]
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+Now drawing from 'AC Power'
+== tune-bs8 end 2026-09-24T18:33:37Z rc=2
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+== tune-bs64 start 2026-09-24T18:33:37Z env=[] extra=[--batch-size 64]
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+Now drawing from 'AC Power'
+== tune-bs64 end 2026-09-24T18:48:12Z rc=2
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+== tune-base4 start 2026-09-24T18:48:12Z env=[] extra=[]
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+Now drawing from 'AC Power'
+== tune-base4 end 2026-09-24T19:02:37Z rc=2
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+== tune-fp16 start 2026-09-24T19:02:37Z env=[JEV_TORCH_DTYPE=float16] extra=[]
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+Now drawing from 'AC Power'
+== tune-fp16 end 2026-09-24T19:17:54Z rc=2
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+== tune-base5 start 2026-09-24T19:17:54Z env=[] extra=[]
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+Now drawing from 'AC Power'
+== tune-base5 end 2026-09-24T19:32:52Z rc=2
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
