@@ -60,6 +60,18 @@ class ProfileSynchronizationTest(unittest.TestCase):
         self.assertIn("shared_prefill", stats["profile_seconds"])
 
 
+class ProfiledChildEnvironmentTest(unittest.TestCase):
+    def test_profiled_child_loads_weights_on_one_thread(self):
+        # MPSProfiler segfaulted inside transformers' threaded weight loading
+        # on the released 2B checkpoint (M4, torch 2.14, transformers 5.10).
+        from scripts.check_mps_engagement import PROFILE_LOG_OPTIONS, profiled_child_environment
+        with patch.dict(os.environ, {"HF_HUB_OFFLINE": "1"}):
+            environment = profiled_child_environment()
+        self.assertEqual(environment["HF_DEACTIVATE_ASYNC_LOAD"], "1")
+        self.assertEqual(environment["PYTORCH_MPS_LOG_PROFILE_INFO"], str(PROFILE_LOG_OPTIONS))
+        self.assertEqual(environment["HF_HUB_OFFLINE"], "1")
+
+
 @unittest.skipUnless(HAS_MPS, "requires a torch build with an available MPS backend")
 class MpsSupportTest(unittest.TestCase):
     assert_rows_close = base.PrefixCacheTest.assert_rows_close

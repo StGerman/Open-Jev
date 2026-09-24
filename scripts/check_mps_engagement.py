@@ -30,6 +30,13 @@ from scripts.benchmark_inference_latency import apple_gpu_statistics, sysctl
 PROFILE_LOG_OPTIONS = (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7)
 
 
+def profiled_child_environment():
+    # MPSProfiler is not safe against transformers' threaded weight loading:
+    # the child segfaulted mid-load on the released 2B checkpoint.
+    return {**os.environ, "PYTORCH_MPS_LOG_PROFILE_INFO": str(PROFILE_LOG_OPTIONS),
+            "HF_DEACTIVATE_ASYNC_LOAD": "1"}
+
+
 def utilization():
     match = re.search(r'"Device Utilization %"=(\d+)', apple_gpu_statistics() or "")
     return int(match.group(1)) if match else None
@@ -126,12 +133,11 @@ def main():
         "signposts": args.signposts,
     }
     if args.profile_log:
-        environment = {**os.environ, "PYTORCH_MPS_LOG_PROFILE_INFO": str(PROFILE_LOG_OPTIONS)}
         child = subprocess.run(
             [sys.executable, "-m", "scripts.check_mps_engagement", "--profiled-child",
              "--checkpoint", str(args.checkpoint), "--request", str(args.request),
              "--repetitions", str(min(args.repetitions, 5)), "--batch-size", str(args.batch_size)],
-            env=environment, capture_output=True, text=True, check=False)
+            env=profiled_child_environment(), capture_output=True, text=True, check=False)
         args.profile_log.write_text(child.stdout + child.stderr)
         log = child.stdout + child.stderr
         report["profile"] = {"log": str(args.profile_log), "exit_code": child.returncode,
