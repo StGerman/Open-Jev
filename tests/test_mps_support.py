@@ -72,6 +72,25 @@ class ProfiledChildEnvironmentTest(unittest.TestCase):
         self.assertEqual(environment["HF_HUB_OFFLINE"], "1")
 
 
+@unittest.skipUnless(HAS_RUNTIME, "requires optional torch/transformers/peft train runtime")
+class HttpTimeoutTest(unittest.TestCase):
+    def test_loopback_timeout_defaults_to_120_seconds_and_is_configurable(self):
+        # CPU bfloat16 took 172 s for one uncached request of the released 2B
+        # checkpoint on an M4, beyond the fixed 120 s loopback timeout.
+        import http.client
+        from jev.serving import Predictor, TorchScorer
+        from scripts.benchmark_inference_latency import benchmark, digest
+        request = mixed_request()
+        workloads = [{"id": "mixed", "request": request, "request_sha256": digest(request)}]
+        predictor = Predictor(TorchScorer(tiny_model()), model_name="tiny", method="fixture")
+        for keyword, expected in (({}, 120), ({"http_timeout": 900}, 900)):
+            with self.subTest(expected=expected), tempfile.TemporaryDirectory() as directory, \
+                 patch("http.client.HTTPConnection", wraps=http.client.HTTPConnection) as connection:
+                result = benchmark(predictor, workloads, output=Path(directory), warmup=1, repetitions=1, **keyword)
+                self.assertEqual(result["status"], "passed")
+                self.assertEqual({call.kwargs["timeout"] for call in connection.call_args_list}, {expected})
+
+
 @unittest.skipUnless(HAS_MPS, "requires a torch build with an available MPS backend")
 class MpsSupportTest(unittest.TestCase):
     assert_rows_close = base.PrefixCacheTest.assert_rows_close

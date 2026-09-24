@@ -138,7 +138,7 @@ def validate_response(request, response):
 
 
 def benchmark(predictor, workloads, *, output, warmup=3, repetitions=20,
-              probability_tolerance=1e-4, max_seconds=900, synchronize=None):
+              probability_tolerance=1e-4, max_seconds=900, synchronize=None, http_timeout=120):
     """One loaded model, concurrency one, four paths alternated within each repeat."""
     import torch
     device = torch.device(predictor.scorer.model.device_name)
@@ -185,7 +185,7 @@ def benchmark(predictor, workloads, *, output, warmup=3, repetitions=20,
                 synchronize()
             else:
                 payload = json.dumps(workload["request"], ensure_ascii=False, allow_nan=False).encode()
-                connection = http.client.HTTPConnection("127.0.0.1", server.server_port, timeout=120)
+                connection = http.client.HTTPConnection("127.0.0.1", server.server_port, timeout=http_timeout)
                 connection.request("POST", "/v1/inference", payload, {"Content-Type": "application/json"})
                 received = connection.getresponse()
                 raw = received.read()
@@ -293,11 +293,14 @@ def main():
     parser.add_argument("--repetitions", type=int, default=20)
     parser.add_argument("--max-seconds", type=float, default=900)
     parser.add_argument("--max-probability-error", type=float, default=1e-4)
+    parser.add_argument("--http-timeout", type=float, default=120,
+                        help="Loopback HTTP timeout in seconds; raise for slow CPU runs")
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--prepare-only", action="store_true", help="CPU tokenizer only; no model/GPU allocation")
     args = parser.parse_args()
     if (not 1 <= args.repetitions <= 200 or not 1 <= args.warmup <= 10 or not 1 <= args.batch_size <= 256
             or not 1 <= args.max_seconds <= 3600 or not 0 <= args.max_probability_error <= 1
+            or not 1 <= args.http_timeout <= 3600
             or any(not 32 <= n <= 3072 for n in args.contexts) or any(not 2 <= n <= 255 for n in args.candidates)):
         parser.error("invalid bounded benchmark arguments")
     if args.output.resolve().is_relative_to(args.checkpoint.resolve()):
@@ -367,7 +370,7 @@ def main():
                     report["gpu_snapshot_before"] = None
             report.update(benchmark(predictor, workloads, output=args.output, warmup=args.warmup,
                                     repetitions=args.repetitions, probability_tolerance=args.max_probability_error,
-                                    max_seconds=args.max_seconds))
+                                    max_seconds=args.max_seconds, http_timeout=args.http_timeout))
     except BaseException as error:
         report.update(status="runtime_error", error_type=type(error).__name__, error=str(error))
     report["source_sha256"] = {name: hashlib.sha256(Path(name).read_bytes()).hexdigest() for name in
