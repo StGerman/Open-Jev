@@ -3,11 +3,17 @@
 Open-Jev runs on the Apple GPU through PyTorch's MPS backend. Everything below
 is opt-in: with no flag or variable set, CUDA and CPU behave exactly as before.
 
-**Status.** Verified on an M4 Pro with the random hybrid-Qwen test fixture (real
-Qwen3.5 architecture, LoRA and scalar head; random weights, no download): it runs
-entirely on Metal with no CPU fallback, and float32 scores match CPU to ~1e-6.
-**Not yet measured:** the released checkpoint on MPS, and the CPU-versus-MPS latency
-benchmark. The protocol for both is below.
+**Status.** The released 2B checkpoint runs entirely on Metal with no CPU fallback
+(M4 MacBook Air, 10-core GPU, 24 GB, macOS 26.6, torch 2.14). On a reduced six-workload
+matrix, MPS at the released bfloat16 is 1.3–3.5× faster than CPU float32 uncached and
+2.6–14× faster cached; CPU bfloat16 is 4–12× slower than CPU float32. MPS and CPU
+make the same decisions on every request, with probabilities differing by at most
+4.5e-3. None of the knobs in step 5 below is faster than the defaults on MPS beyond
+about 8% run-to-run noise. The Air has no fan and throttles within minutes: these are
+heat-soaked numbers, and a cool machine is up to 1.7× faster. No comparison with the
+H100 rows is claimed. Raw reports, full tables and the MPS profile are on the
+[`mps-apple-silicon-support` branch of StGerman/Open-Jev](https://github.com/StGerman/Open-Jev/blob/a30fe54/docs/apple-silicon.md#released-checkpoint-results).
+The random-fixture checks (M4 Pro) are under [Fixture results](#fixture-results).
 
 Docker cannot use the Apple GPU: containers on macOS run in a Linux VM without
 Metal. Run natively.
@@ -114,7 +120,10 @@ MPS has no peak-memory counter, so samples record point-in-time allocator readin
 
    Measure CPU at its default `bfloat16` and again with `JEV_TORCH_DTYPE=float32`, and
    compare MPS against the faster of the two, so a slow CPU dtype path does not inflate
-   the GPU speedup.
+   the GPU speedup. One uncached CPU `bfloat16` request can take longer than the harness's
+   default 120 s loopback timeout; pass `--http-timeout 1800` for CPU runs. On a fanless
+   Mac, a 5-minute cooldown does not undo throttling: run knob comparisons back to back
+   at the same thermal state, with baseline runs in between.
 4. **Compare answers across devices.** Drift between backends is expected; changed
    decisions are what matter, and are listed per request:
 
